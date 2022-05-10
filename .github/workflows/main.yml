@@ -15,7 +15,7 @@ jobs:
         project_name: "GitHub Actions SCA - TEST"
         sarif: true
         gpat: ${{ secrets.SOOS_GPAT }}
-        api_url: "https://qa-api.soos.io/api/"
+        base_uri: "https://qa-api.soos.io/api/"
       env:
         # Visit https://soos.io to get the required tokens to leverage SOOS scanning/analysis services
         SOOS_CLIENT_ID: ${{ secrets.SOOS_CLIENT_ID }}
