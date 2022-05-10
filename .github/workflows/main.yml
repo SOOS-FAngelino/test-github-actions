@@ -16,4 +16,4 @@ jobs:
           api_url: "https://qa-api.soos.io/api/"
           target_url: "https://brokencrystals.com/"
           sarif: true
-          gpat: ${{ secrets.SOOS_GITHUB_PAT }}
+          gpat: ${{ secrets.SOOS_GPAT }}
