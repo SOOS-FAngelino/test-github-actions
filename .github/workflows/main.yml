@@ -10,7 +10,7 @@ jobs:
     - uses: actions/checkout@master
 
     - name: Run SOOS - Scan for vulnerabilities
-      uses: soos-io/soos-sca-github-action@v1.0.3-beta
+      uses: soos-io/soos-sca-github-action@latest
       with:
         project_name: "GitHub Actions SCA - TEST"
         sarif: true
