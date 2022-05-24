@@ -19,4 +19,4 @@ jobs:
         # Visit https://soos.io to get the required tokens to leverage SOOS scanning/analysis services
         client_id: ${{ secrets.SOOS_CLIENT_ID }}
         api_key: ${{ secrets.SOOS_API_KEY }}
-        directories_to_exclude: "github/workspace/soos/workspace/"
+        directories_to_exclude: "soos/"
