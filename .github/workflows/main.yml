@@ -15,5 +15,3 @@ jobs:
           #apiscan_format: 'openapi' # Mandatory if you select apiscan mode 
           api_url: "https://qa-api.soos.io/api/"
           target_url: "https://brokencrystals.com/"
-          sarif: true
-          gpat: ${{ secrets.SOOS_GPAT }}
