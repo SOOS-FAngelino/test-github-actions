@@ -14,16 +14,16 @@ jobs:
         uses: soos-io/soos-sca-github-action@v1.2.0
         with:
           project_name: 'test-sca/dast-github-actions'
-          client_id: ${{ secrets.SOOS_CLIENT_ID }}
-          api_key: ${{ secrets.SOOS_API_KEY }}
-          api_url: 'https://api.soos.io/api/'
+          client_id: 'z0h7n92tb'
+          api_key: 'MDYzMmMyMDEtMTdjZS00MGMxLTk3NTItZDg5MjdkYjBhZDlh'
+          api_url: 'https://qa-api.soos.io/api/'
       # Runs a single command using the runners shell
       - name: SOOS DAST
       # You may pin to the exact commit or the version.
         uses: soos-io/soos-dast-github-action@feature/PA-6993
         with:
-          client_id: ${{ secrets.SOOS_CLIENT_ID }}
-          api_key: ${{ secrets.SOOS_API_KEY }}
+          client_id: 'z0h7n92tb'
+          api_key: 'MDYzMmMyMDEtMTdjZS00MGMxLTk3NTItZDg5MjdkYjBhZDlh'
           project_name: 'test-sca/dast-github-actions'
           target_url: 'https://brokencrystals.com/'
-          api_url: 'https://api.soos.io/api/'
+          api_url: 'https://qa-api.soos.io/api/'
