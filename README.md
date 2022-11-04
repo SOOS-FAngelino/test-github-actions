@@ -1,3 +1,3 @@
 # test-github-actions
 
-autom2
+autom3
