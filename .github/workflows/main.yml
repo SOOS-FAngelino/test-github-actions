@@ -13,7 +13,7 @@ jobs:
       - name: SOOS SCA Scan
         uses: soos-io/soos-sca-github-action@v1.2.0
         with:
-          project_name: 'test-sca/dast-github-actions'
+          project_name: 'aut_pd_projA'
           client_id: 'z0h7n92tb'
           api_key: 'MDYzMmMyMDEtMTdjZS00MGMxLTk3NTItZDg5MjdkYjBhZDlh'
           api_url: 'https://qa-api.soos.io/api/'
@@ -24,6 +24,6 @@ jobs:
         with:
           client_id: 'z0h7n92tb'
           api_key: 'MDYzMmMyMDEtMTdjZS00MGMxLTk3NTItZDg5MjdkYjBhZDlh'
-          project_name: 'test-sca/dast-github-actions'
+          project_name: 'aut_pd_projA'
           target_url: 'https://brokencrystals.com/'
           api_url: 'https://qa-api.soos.io/api/'
