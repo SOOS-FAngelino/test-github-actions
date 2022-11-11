@@ -1,3 +1,3 @@
 # test-github-actions
 
-autom
+autom 1
