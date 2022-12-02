@@ -10,3 +10,4 @@ prod test 11-14-2022
 smoke 22-23
 tst
 test PA-7353
+fangelino+qa-2222@soos.io
