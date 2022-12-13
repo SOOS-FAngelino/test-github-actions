@@ -12,3 +12,4 @@ tst
 test PA-7353
 fangelino+qa-2222@soos.io
 fangelino+qa-2225.2@soos.io
+pre-relase tests
