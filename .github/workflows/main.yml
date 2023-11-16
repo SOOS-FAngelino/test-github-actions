@@ -21,7 +21,7 @@ jobs:
           api_url: 'https://api.soos.io/api/'
           disable_rules: '10021, 10096, 10020'
       - name: Run SOOS - Scan for vulnerabilities
-        uses: soos-io/soos-sca-github-action@v1.2.4 # Get Latest Version from https://github.com/marketplace/actions/soos-core-sca
+        uses: soos-io/soos-sca-github-action@v.1.2.4 # Get Latest Version from https://github.com/marketplace/actions/soos-core-sca
         with:
          project_name: "test-sca/dast-github-actions"
          client_id: ${{ secrets.PD_SOOS_CLIENT_ID }}
