@@ -16,3 +16,4 @@ jobs:
           api_url: "https://qa-api.soos.io/api/"
           verbose: "true"
           output_format: "sarif"
+          sarif_file: results.sarif
