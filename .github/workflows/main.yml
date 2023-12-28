@@ -9,8 +9,8 @@ jobs:
       - name: Run SOOS DAST analysis testing
         uses: soos-io/soos-dast-github-action@fix/PA-12446
         with:
-          client_id: ${{ secrets.SOOS_CLIENT_ID }}
-          api_key: ${{ secrets.SOOS_API_KEY }}
+          client_id: ${{ secrets.QA_SOOS_CLIENT_ID }}
+          api_key: ${{ secrets.QA_SOOS_API_KEY }}
           target_url: "https://brokencrystals.com/"
           project_name: "PA-12446 Test"
           api_url: "https://qa-api.soos.io/api/"
