@@ -11,6 +11,6 @@ jobs:
         with:
           client_id: ${{ secrets.QA_SOOS_CLIENT_ID }}
           api_key: ${{ secrets.QA_SOOS_API_KEY }}
-          project_name: "SBOM - Githuib actions test"
+          project_name: "SBOM Githuib actions test"
           sbom_path: ""
           verbose: true
