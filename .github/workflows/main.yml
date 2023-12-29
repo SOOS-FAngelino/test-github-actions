@@ -12,6 +12,6 @@ jobs:
           client_id: ${{ secrets.QA_SOOS_CLIENT_ID }}
           api_key: ${{ secrets.QA_SOOS_API_KEY }}
           api_url: 'https://qa-api.soos.io/api/'
-          project_name: "SBOMGithuibActionsTest"
+          project_name: "SBOM Github Actions Test"
           sbom_path: ""
           verbose: true
