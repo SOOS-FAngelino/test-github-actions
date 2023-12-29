@@ -1,0 +1,52 @@
+{
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "spdxVersion": "SPDX-2.3",
+  "dataLicense": "CC0-1.0",
+  "name": "semver",
+  "documentNamespace": "https://app.soos.io/spdxdocs/soos/semver-5.0.0-b83cc9c2-e7b4-4cff-8656-648660480c73",
+  "comment": "SOOS SCA scan against pkg:npm/semver@5.0.0",
+  "creationInfo": {
+    "created": "2023-08-16T19:26:39Z",
+    "creators": [
+      "Organization: SOOS LLC ()",
+      "Person:   (support@soos.io)",
+      "Tool: SOOS SCA-31.8.20.2"
+    ],
+    "licenseListVersion": "3.9"
+  },
+  "packages": [
+    {
+      "SPDXID": "SPDXRef-SEMVER-5.0.0",
+      "name": "semver",
+      "versionInfo": "5.0.0",
+      "downloadLocation": "https://www.npmjs.com/package/semver/v/5.0.0",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "f96fd0f81ea71ec131aceac26725cef2a255dc01"
+        }
+      ],
+      "homepage": "https://www.npmjs.com/package/semver/v/5.0.0",
+      "licenseDeclared": "ISC",
+      "licenseConcluded": "ISC",
+      "externalRefs": [
+        {
+          "referenceCategory": "OTHER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/semver@5.0.0"
+        }
+      ],
+      "supplier": "Organization: npm",
+      "originator": "NOASSERTION",
+      "primaryPackagePurpose": "LIBRARY",
+      "filesAnalyzed": false
+    }
+  ],
+  "relationships": [
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-SEMVER-5.0.0",
+      "relationshipType": "DESCRIBES"
+    }
+  ]
+}
