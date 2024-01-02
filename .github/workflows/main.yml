@@ -14,4 +14,4 @@ jobs:
           project_name: "Github actions SAST test"
           sast_path: ""
           api_url: 'https://qa-api.soos.io/api/'
-          verbose: true
+          verbose: false
