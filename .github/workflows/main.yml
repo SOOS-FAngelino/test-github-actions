@@ -21,7 +21,7 @@ jobs:
           api_url: 'https://qa-api.soos.io/api/'
           verbose: true
       - name: Run SOOS - Scan for vulnerabilities
-        uses: soos-io/soos-sca-github-action@v1.2.4 # Get Latest Version from https://github.com/marketplace/actions/soos-core-sca
+        uses: soos-io/soos-sca-github-action@v2.0.0 # Get Latest Version from https://github.com/marketplace/actions/soos-core-sca
         with:
          project_name: "test-sca/dast-github-actions"
          client_id: ${{ secrets.QA_SOOS_CLIENT_ID }}
