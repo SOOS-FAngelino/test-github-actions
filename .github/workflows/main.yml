@@ -19,7 +19,7 @@ jobs:
           project_name: 'test-sca/dast-github-actions'
           target_url: 'https://brokencrystals.com/'
           api_url: 'https://qa-api.soos.io/api/'
-          verbose: true
+          verbose: false
       - name: Run SOOS - Scan for vulnerabilities
         uses: soos-io/soos-sca-github-action@v2.0.0 # Get Latest Version from https://github.com/marketplace/actions/soos-core-sca
         with:
@@ -27,4 +27,4 @@ jobs:
          client_id: ${{ secrets.QA_SOOS_CLIENT_ID }}
          api_key: ${{ secrets.QA_SOOS_API_KEY }}
          api_url: 'https://qa-api.soos.io/api/'
-         verbose: true
+         verbose: false
