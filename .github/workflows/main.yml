@@ -13,3 +13,5 @@ jobs:
           api_key: ${{ secrets.QA_SOOS_API_KEY }}
           project_name: "Github Actions SAST"
           api_url: 'https://qa-api.soos.io/api/'
+          directories_to_exclude: "sarif2/**"
+          files_to_exclude: "rust_proj_202312221306.folder_it_sca.sarif.json"
