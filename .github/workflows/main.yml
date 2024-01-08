@@ -17,6 +17,6 @@ jobs:
           files_to_exclude: "conancpp_project_202312051713.folder_it_sca.sarif.json, alpine_latest_202312071248.folder_it_csa.sarif.json"
           branch_name: 'sast-only'
           build_version: '1.0.0'
-          log_level: 'DEBUG'
+          log_level: 'WARN'
           verbose: true
-          on_failure: 'continue_on_failure'
+          on_failure: 'fail_the_build'
