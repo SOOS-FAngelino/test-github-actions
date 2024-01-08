@@ -14,4 +14,8 @@ jobs:
           project_name: "Github Actions SAST"
           api_url: 'https://qa-api.soos.io/api/'
           directories_to_exclude: "sarif2/**"
-          files_to_exclude: "rust_proj_202312221306.folder_it_sca.sarif.json"
+          files_to_exclude: "conancpp_project_202312051713.folder_it_sca.sarif.json, alpine_latest_202312071248.folder_it_csa.sarif.json"
+          branch_name: 'sast-only'
+          build_version: '1.0.0'
+          log_level: 'DEBUG'
+          on_failure: 'continue_on_failure'
