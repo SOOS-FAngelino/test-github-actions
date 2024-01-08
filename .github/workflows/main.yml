@@ -18,5 +18,4 @@ jobs:
           branch_name: 'sast-only'
           build_version: '1.0.0'
           log_level: 'WARN'
-          verbose: true
           on_failure: 'fail_the_build'
