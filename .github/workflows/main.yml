@@ -7,10 +7,9 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Run SOOS SAST Analysis
-        uses: soos-io/soos-sast-github-action@fix/PA-12477 # GET Latest Version from https://github.com/marketplace/actions/soos-sast
+        uses: soos-io/soos-sast-github-action@v1 # GET Latest Version from https://github.com/marketplace/actions/soos-sast
         with:
           client_id: ${{ secrets.QA_SOOS_CLIENT_ID }}
           api_key: ${{ secrets.QA_SOOS_API_KEY }}
-          project_name: "Github actions SAST test"
+          project_name: "Github Actions SAST"
           api_url: 'https://qa-api.soos.io/api/'
-          verbose: true
