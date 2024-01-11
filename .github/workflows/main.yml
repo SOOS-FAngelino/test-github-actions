@@ -12,7 +12,7 @@ jobs:
           client_id: ${{ secrets.PD_SOOS_CLIENT_ID }}
           api_key: ${{ secrets.PD_SOOS_API_KEY }}
           project_name: "Github Actions SAST"
-          directories_to_exclude: "sarif2/**"
+          #directories_to_exclude: "sarif2/**"
           files_to_exclude: "image_resizer_semgrep_output.sarif.json, sastNoIssues_semgrep_output.sarif.json"
           #branch_name: 'sast'
           #build_version: '1.0.0'
