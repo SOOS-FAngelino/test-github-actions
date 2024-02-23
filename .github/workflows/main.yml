@@ -17,10 +17,6 @@ jobs:
           project_name: ${{ github.repository }}
           api_url: "https://qa-api.soos.io/api/"
           verbose: "true"
-          scanMode: "baseline"
-          requestHeaders: "headerTestA:a,headerTestB:b"
-          output_format: "sarif"
-      - name: Upload SOOS DAST SARIF Report
-        uses: github/codeql-action/upload-sarif@v2
-        with:
-          sarif_file: results.sarif
+          scan_mode: "baseline"
+          request_headers: "headerTestA:a,headerTestB:b"
+
