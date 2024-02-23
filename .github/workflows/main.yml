@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Run SOOS DAST analysis testing
-        uses: soos-io/soos-dast-github-action@alpha
+        uses: soos-io/soos-dast-github-action@fix/PA-12859 
         with:
           client_id: ${{ secrets.QA_SOOS_CLIENT_ID }}
           api_key: ${{ secrets.QA_SOOS_API_KEY }}
@@ -17,6 +17,8 @@ jobs:
           project_name: ${{ github.repository }}
           api_url: "https://qa-api.soos.io/api/"
           verbose: "true"
+          scanMode: "baseline"
+          requestHeaders: "headerTestA:a,headerTestB:b"
           output_format: "sarif"
       - name: Upload SOOS DAST SARIF Report
         uses: github/codeql-action/upload-sarif@v2
