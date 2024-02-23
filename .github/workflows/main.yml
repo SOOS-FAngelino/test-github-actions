@@ -13,11 +13,11 @@ jobs:
         with:
           client_id: ${{ secrets.QA_SOOS_CLIENT_ID }}
           api_key: ${{ secrets.QA_SOOS_API_KEY }}
-          scan_mode: "baseline"
-          target_url: "https://brokencrystals.com/"
-          project_name: ${{ github.repository }}
+          #scan_mode: "apiscan"
+          auth_login_url: "https://demoqa.com/login" 
+          target_url: "https://demoqa.com/profile" 
+          auth_verification_url: "https://demoqa.com/Account/v1/User/52d9d238-fc85-4f1e-9ce2-50a65397ed29"
+          auth_user_name: "josetest" 
+          auth_password: "J0s3#t3st" 
+          project_name: "DAST-GHActions-Auth-Single-Page"
           api_url: "https://qa-api.soos.io/api/"
-          verbose: "false"
-          debug: "false"
-          other_options: "-d"          
-          request_headers: "headerTestA:a,headerTestB:b"
