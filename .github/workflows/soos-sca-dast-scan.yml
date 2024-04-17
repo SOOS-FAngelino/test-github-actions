@@ -61,3 +61,20 @@ jobs:
         uses: github/codeql-action/upload-sarif@v2
         with:
           sarif_file: results.sarif
+  soos_sast_analysis_example:
+    name: SOOS SAST Analysis Example
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Run SOOS SAST Analysis
+        uses: soos-io/soos-sast-github-action@v1 # GET Latest Version from https://github.com/marketplace/actions/soos-sast
+        with:
+          client_id: ${{ secrets.QA_SOOS_CLIENT_ID }}
+          api_key: ${{ secrets.QA_SOOS_API_KEY }}
+          api_url: "https://qa-api.soos.io/api/"
+          project_name: "SCA+DAST Github Actions Test"
+          directories_to_exclude: "sarif2/**"
+          files_to_exclude: "image_resizer_semgrep_output.sarif.json, sastNoIssues_semgrep_output.sarif.json"
+          #branch_name: 'sast'
+          #build_version: '1.0.0'
+          #log_level: 'WARN'
