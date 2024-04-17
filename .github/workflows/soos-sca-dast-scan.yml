@@ -28,6 +28,17 @@ on:
     branches: [ "main" ]
 
 jobs:
+  soos-sca-analysis:
+    name: SOOS SCA Scan
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Run SOOS - Scan for vulnerabilities
+      uses: soos-io/soos-sca-github-action@v2 # Get Latest Version from https://github.com/marketplace/actions/soos-core-sca
+      with:
+        project_name: "SCA+DAST Github Actions Test"
+        client_id: ${{ secrets.QA_SOOS_CLIENT_ID }}
+        api_key: ${{ secrets.QA_SOOS_API_KEY }}
   soos:
     permissions:
       security-events: write # for uploading code scanning alert info
@@ -38,9 +49,9 @@ jobs:
       - name: Run SOOS DAST Analysis
         uses: soos-io/soos-dast-github-action@v2
         with:
-          client_id: ${{ secrets.SOOS_CLIENT_ID }}
-          api_key: ${{ secrets.SOOS_API_KEY }}
-          project_name: "Smoke-test"
+          client_id: ${{ secrets.QA_SOOS_CLIENT_ID }}
+          api_key: ${{ secrets.QA_SOOS_API_KEY }}
+          project_name: "SCA+DAST Github Actions Test"
           scan_mode: "baseline"
           target_url: "https://www.example.com/"
           output_format: "sarif"
