@@ -39,6 +39,7 @@ jobs:
         project_name: "SCA+DAST Github Actions Test"
         client_id: ${{ secrets.QA_SOOS_CLIENT_ID }}
         api_key: ${{ secrets.QA_SOOS_API_KEY }}
+        api_url: "https://qa-api.soos.io/api/"
   soos:
     permissions:
       security-events: write # for uploading code scanning alert info
@@ -51,6 +52,7 @@ jobs:
         with:
           client_id: ${{ secrets.QA_SOOS_CLIENT_ID }}
           api_key: ${{ secrets.QA_SOOS_API_KEY }}
+          api_url: "https://qa-api.soos.io/api/"
           project_name: "SCA+DAST Github Actions Test"
           scan_mode: "baseline"
           target_url: "https://www.example.com/"
