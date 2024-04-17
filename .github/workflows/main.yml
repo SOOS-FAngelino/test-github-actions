@@ -9,9 +9,10 @@ jobs:
       - name: Run SOOS SAST Analysis
         uses: soos-io/soos-sast-github-action@v1 # GET Latest Version from https://github.com/marketplace/actions/soos-sast
         with:
-          client_id: ${{ secrets.PD_SOOS_CLIENT_ID }}
-          api_key: ${{ secrets.PD_SOOS_API_KEY }}
-          project_name: "Github Actions SAST"
+          client_id: ${{ secrets.QA_SOOS_CLIENT_ID }}
+          api_key: ${{ secrets.QA_SOOS_API_KEY }}
+          api_url: "https://qa-api.soos.io/api/"
+          project_name: "SCA+DAST Github Actions Test"
           #directories_to_exclude: "sarif2/**"
           files_to_exclude: "image_resizer_semgrep_output.sarif.json, sastNoIssues_semgrep_output.sarif.json"
           #branch_name: 'sast'
