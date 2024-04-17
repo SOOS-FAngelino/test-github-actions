@@ -73,7 +73,7 @@ jobs:
           api_key: ${{ secrets.QA_SOOS_API_KEY }}
           api_url: "https://qa-api.soos.io/api/"
           project_name: "SCA+DAST+SAST Github Actions Test"
-          directories_to_exclude: "sarif/**"
+          #directories_to_exclude: "sarif/**"
           files_to_exclude: "image_resizer_semgrep_output.sarif.json, sastNoIssues_semgrep_output.sarif.json"
           #branch_name: 'sast'
           #build_version: '1.0.0'
