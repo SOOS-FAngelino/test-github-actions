@@ -14,9 +14,9 @@ jobs:
           api_url: "https://qa-api.soos.io/api/"
           project_name: "SAST Github Actions Test"
           #sast_path: "../../"
-          #directories_to_exclude: "sarif2/**"
+          directories_to_exclude: "projectB/**"
           #files_to_exclude: "image_resizer_semgrep_output.sarif.json, sastNoIssues_semgrep_output.sarif.json"
-          branch_name: 'sast-integration-test'
+          #branch_name: 'sast-integration-test'
           #build_version: '1.0.0'
           #log_level: 'WARN'
           #verbose: true
