@@ -15,9 +15,9 @@ jobs:
           project_name: "SAST Github Actions Test"
           #sast_path: "../../"
           directories_to_exclude: "projectB/**"
-          files_to_exclude: "new-project/BuildOutput.sarif.json"
+          #files_to_exclude: "new-project/BuildOutput.sarif.json"
           #branch_name: 'sast-integration-test'
           #build_version: '1.0.0'
-          log_level: 'INVALID'
+          log_level: 'INFO'
           #verbose: true
-          #on_failure: 'fail_the_build'
+          on_failure: 'fail_the_build'
