@@ -19,5 +19,5 @@ jobs:
           #branch_name: 'sast-integration-test'
           #build_version: '1.0.0'
           #log_level: 'INFO'
-          verbose: true
+          #verbose: true
           #on_failure: 'fail_the_build'
