@@ -9,9 +9,9 @@ jobs:
       - name: Run SOOS SAST Analysis
         uses: soos-io/soos-sast-github-action@v1 # GET Latest Version from https://github.com/marketplace/actions/soos-sast
         with:
-          #client_id: ${{ secrets.QA_SOOS_CLIENT_ID }}
+          client_id: ${{ secrets.QA_SOOS_CLIENT_ID }}
           api_key: ${{ secrets.QA_SOOS_API_KEY }}
-          api_url: "https://qa-api.soos.io/api/"
+          #api_url: "https://qa-api.soos.io/api/"
           #project_name: "SAST Github Actions Test"
           #sast_path: "../../"
           directories_to_exclude: "projectB/**"
