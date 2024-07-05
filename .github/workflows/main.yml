@@ -16,8 +16,8 @@ jobs:
           #sast_path: "../../"
           #directories_to_exclude: "projectB/**"
           #files_to_exclude: "new-project/BuildOutput.sarif.json"
-          branch_name: 'sast-integration-test-2'
+          #branch_name: 'sast-integration-test-2'
           #build_version: '1.0.0'
           #log_level: 'INFO'
-          #verbose: true
-          #on_failure: 'fail_the_build'
+          verbose: true
+          on_failure: 'fail_the_build'
