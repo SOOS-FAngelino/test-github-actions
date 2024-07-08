@@ -40,6 +40,7 @@ jobs:
         client_id: ${{ secrets.QA_SOOS_CLIENT_ID }}
         api_key: ${{ secrets.QA_SOOS_API_KEY }}
         api_url: "https://qa-api.soos.io/api/"
+        branch_name: "new-branch"
   soos:
     permissions:
       security-events: write # for uploading code scanning alert info
@@ -57,6 +58,7 @@ jobs:
           scan_mode: "baseline"
           target_url: "https://brokencrystals.com/"
           output_format: "sarif"
+          branch_name: "new-branch"
       - name: Upload SOOS DAST SARIF Report
         uses: github/codeql-action/upload-sarif@v2
         with:
