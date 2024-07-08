@@ -77,6 +77,6 @@ jobs:
           project_name: "SCA+DAST+SAST Github Actions Test"
           #directories_to_exclude: "sarif/**"
           files_to_exclude: "image_resizer_semgrep_output.sarif.json, sastNoIssues_semgrep_output.sarif.json"
-          #branch_name: 'sast'
+          branch_name: "new-branch"
           #build_version: '1.0.0'
           #log_level: 'WARN'
