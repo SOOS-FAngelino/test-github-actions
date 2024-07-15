@@ -39,7 +39,7 @@ jobs:
         project_name: "SCA+DAST+SAST Github Actions Test"
         client_id: ${{ secrets.QA_SOOS_CLIENT_ID }}
         api_key: ${{ secrets.QA_SOOS_API_KEY }}
-        #api_url: "https://qa-api.soos.io/api/"
+        api_url: "https://qa-api.soos.io/api/"
         #branch_name: "new-branch"
   soos:
     permissions:
@@ -53,7 +53,7 @@ jobs:
         with:
           client_id: ${{ secrets.QA_SOOS_CLIENT_ID }}
           api_key: ${{ secrets.QA_SOOS_API_KEY }}
-          #api_url: "https://qa-api.soos.io/api/"
+          api_url: "https://qa-api.soos.io/api/"
           project_name: "SCA+DAST+SAST Github Actions Test"
           scan_mode: "baseline"
           target_url: "https://brokencrystals.com/"
@@ -73,7 +73,7 @@ jobs:
         with:
           client_id: ${{ secrets.QA_SOOS_CLIENT_ID }}
           api_key: ${{ secrets.QA_SOOS_API_KEY }}
-          #api_url: "https://qa-api.soos.io/api/"
+          api_url: "https://qa-api.soos.io/api/"
           project_name: "SCA+DAST+SAST Github Actions Test"
           #directories_to_exclude: "sarif/**"
           #files_to_exclude: "image_resizer_semgrep_output.sarif.json, sastNoIssues_semgrep_output.sarif.json"
