@@ -1,0 +1,2118 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Analysis API",
+    "description": "This is the SOOS Analysis API",
+    "license": {
+      "name": "Copyright 2022, SOOS, LLC",
+      "url": "https://soos.io"
+    },
+    "version": "25.8.38"
+  },
+  "servers": [
+    {
+      "url": "https://dev-api.soos.io/api"
+    }
+  ],
+  "paths": {
+    "/clients/{clientHash}/projects/{projectHash}/analysis/{analysisId}/manifests": {
+      "post": {
+        "tags": [
+          "Analysis"
+        ],
+        "operationId": "AnalysisPostAddManifests",
+        "parameters": [
+          {
+            "name": "clientHash",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-ms-summary": "The client hash"
+          },
+          {
+            "name": "projectHash",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-ms-summary": "The project hash"
+          },
+          {
+            "name": "analysisId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-ms-summary": "The analysis id"
+          },
+          {
+            "name": "hasMoreThanMaximumManifests",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-ms-summary": "True if there were additional manifests that were not uploaded"
+          }
+        ],
+        "requestBody": {
+          "description": "SWAGGER DOES NOT WORK FOR THIS REQUEST. Use Postman to create the multiple file body.",
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/multipartManifestFormDataViewModel"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Payload of AddManifestsResponseViewModel",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/addManifestsResponseViewModel"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Payload of AddManifestsResponseViewModel",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/addManifestsResponseViewModel"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Payload of CodedMessage",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/codedMessage"
+                },
+                "examples": {
+                  "CodedMessageExample": {
+                    "value": "{\"code\":\"SomeCode\",\"message\":\"Some error message.\",\"data\":null,\"statusCode\":400,\"moreInformation\":null}"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Payload of CodedMessage",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/codedMessage"
+                },
+                "examples": {
+                  "CodedMessageExample": {
+                    "value": "{\"code\":\"SomeCode\",\"message\":\"Some error message.\",\"data\":null,\"statusCode\":400,\"moreInformation\":null}"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "soos_jwt": [ ]
+          },
+          {
+            "soos_apiKey": [ ]
+          }
+        ]
+      }
+    },
+    "/clients/{clientHash}/manifests": {
+      "get": {
+        "tags": [
+          "Analysis"
+        ],
+        "operationId": "AnalysisGetSupportedManifests",
+        "parameters": [
+          {
+            "name": "clientHash",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-ms-summary": "The client hash"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Payload of Array of SupportedManifestsViewModel",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/supportedManifestsViewModel"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Payload of CodedMessage",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/codedMessage"
+                },
+                "examples": {
+                  "CodedMessageExample": {
+                    "value": "{\"code\":\"SomeCode\",\"message\":\"Some error message.\",\"data\":null,\"statusCode\":400,\"moreInformation\":null}"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Payload of CodedMessage",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/codedMessage"
+                },
+                "examples": {
+                  "CodedMessageExample": {
+                    "value": "{\"code\":\"SomeCode\",\"message\":\"Some error message.\",\"data\":null,\"statusCode\":400,\"moreInformation\":null}"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "soos_jwt": [ ]
+          },
+          {
+            "soos_apiKey": [ ]
+          }
+        ]
+      }
+    },
+    "/clients/{clientHash}/github/repositories/{repositoryId}/branches": {
+      "get": {
+        "tags": [
+          "GitHub"
+        ],
+        "operationId": "GitHubGetGitHubRepositoryBranches",
+        "parameters": [
+          {
+            "name": "clientHash",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-ms-summary": "The client hash"
+          },
+          {
+            "name": "repositoryId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "x-ms-summary": "The repositoryId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Payload of GitHubRepositoryBranchesViewModel",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/gitHubRepositoryBranchesViewModel"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Payload of CodedMessage",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/codedMessage"
+                },
+                "examples": {
+                  "CodedMessageExample": {
+                    "value": "{\"code\":\"SomeCode\",\"message\":\"Some error message.\",\"data\":null,\"statusCode\":400,\"moreInformation\":null}"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Payload of CodedMessage",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/codedMessage"
+                },
+                "examples": {
+                  "CodedMessageExample": {
+                    "value": "{\"code\":\"SomeCode\",\"message\":\"Some error message.\",\"data\":null,\"statusCode\":400,\"moreInformation\":null}"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "soos_jwt": [ ]
+          },
+          {
+            "soos_apiKey": [ ]
+          }
+        ]
+      }
+    },
+    "/github/webhook": {
+      "post": {
+        "tags": [
+          "GitHub"
+        ],
+        "description": "This route is called by GitHub and sends a webhook received message if accepted.",
+        "operationId": "GitHubPostGitHubWebHookAnalysis",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/gitWebhook"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "description": "Payload of CodedMessage",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/codedMessage"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No description"
+          }
+        },
+        "security": [
+          {
+            "soos_jwt": [ ]
+          },
+          {
+            "soos_apiKey": [ ]
+          }
+        ]
+      }
+    },
+    "/clients/{clientHash}/quickscans/manifest": {
+      "post": {
+        "tags": [
+          "QuickScans"
+        ],
+        "description": "Post a multipart form file with a single manifest and start QuickScan branch analysis.",
+        "operationId": "QuickScansPostManifest",
+        "parameters": [
+          {
+            "name": "clientHash",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-ms-summary": "The client hash"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/multipartFormDataFileViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Payload of ScanCreatedViewModel",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/scanCreatedViewModel"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Payload of CodedMessage",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/codedMessage"
+                },
+                "examples": {
+                  "CodedMessageExample": {
+                    "value": "{\"code\":\"SomeCode\",\"message\":\"Some error message.\",\"data\":null,\"statusCode\":400,\"moreInformation\":null}"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Payload of CodedMessage",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/codedMessage"
+                },
+                "examples": {
+                  "CodedMessageExample": {
+                    "value": "{\"code\":\"SomeCode\",\"message\":\"Some error message.\",\"data\":null,\"statusCode\":400,\"moreInformation\":null}"
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Payload of CodedMessage",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/codedMessage"
+                },
+                "examples": {
+                  "CodedMessageExample": {
+                    "value": "{\"code\":\"SomeCode\",\"message\":\"Some error message.\",\"data\":null,\"statusCode\":400,\"moreInformation\":null}"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "soos_jwt": [ ]
+          },
+          {
+            "soos_apiKey": [ ]
+          }
+        ]
+      }
+    },
+    "/clients/{clientHash}/projects/{projectHash}/branches/{branchHash}/scans/{scanId}/attribution": {
+      "post": {
+        "tags": [
+          "ScanAttribution"
+        ],
+        "operationId": "ScanAttributionPostAnalysisAttribution",
+        "parameters": [
+          {
+            "name": "clientHash",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-ms-summary": "The client hash"
+          },
+          {
+            "name": "projectHash",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-ms-summary": "The project hash"
+          },
+          {
+            "name": "branchHash",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-ms-summary": "The project hash"
+          },
+          {
+            "name": "scanId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-ms-summary": "The scan identifier"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/attributionViewModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The file",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Payload of CodedMessage",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/codedMessage"
+                },
+                "examples": {
+                  "CodedMessageExample": {
+                    "value": "{\"code\":\"SomeCode\",\"message\":\"Some error message.\",\"data\":null,\"statusCode\":400,\"moreInformation\":null}"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Payload of CodedMessage",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/codedMessage"
+                },
+                "examples": {
+                  "CodedMessageExample": {
+                    "value": "{\"code\":\"SomeCode\",\"message\":\"Some error message.\",\"data\":null,\"statusCode\":400,\"moreInformation\":null}"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "soos_jwt": [ ]
+          },
+          {
+            "soos_apiKey": [ ]
+          }
+        ]
+      }
+    },
+    "/clients/{clientHash}/projects/{projectHash}/branches/{branchHash}/scan-types/{scanType}/scans/{scanId}": {
+      "get": {
+        "tags": [
+          "Scans"
+        ],
+        "operationId": "ScansGetScanStatus",
+        "parameters": [
+          {
+            "name": "clientHash",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-ms-summary": "The client hash"
+          },
+          {
+            "name": "projectHash",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-ms-summary": "The project hash"
+          },
+          {
+            "name": "branchHash",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-ms-summary": "The branch hash"
+          },
+          {
+            "name": "scanType",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "enum": [
+                "unknown",
+                "sca",
+                "dast"
+              ],
+              "type": "string",
+              "default": "unknown"
+            },
+            "x-ms-summary": "The scan type"
+          },
+          {
+            "name": "scanId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-ms-summary": "The scan analysis id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Payload of ScanStatusViewModel",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/scanStatusViewModel"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Payload of CodedMessage",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/codedMessage"
+                },
+                "examples": {
+                  "CodedMessageExample": {
+                    "value": "{\"code\":\"SomeCode\",\"message\":\"Some error message.\",\"data\":null,\"statusCode\":400,\"moreInformation\":null}"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Payload of CodedMessage",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/codedMessage"
+                },
+                "examples": {
+                  "CodedMessageExample": {
+                    "value": "{\"code\":\"SomeCode\",\"message\":\"Some error message.\",\"data\":null,\"statusCode\":400,\"moreInformation\":null}"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "soos_jwt": [ ]
+          },
+          {
+            "soos_apiKey": [ ]
+          }
+        ]
+      },
+      "patch": {
+        "tags": [
+          "Scans"
+        ],
+        "operationId": "ScansPatchScanStatus",
+        "parameters": [
+          {
+            "name": "clientHash",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-ms-summary": "The client hash"
+          },
+          {
+            "name": "projectHash",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-ms-summary": "The project hash"
+          },
+          {
+            "name": "branchHash",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-ms-summary": "The branch hash"
+          },
+          {
+            "name": "scanType",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "enum": [
+                "unknown",
+                "sca",
+                "dast"
+              ],
+              "type": "string",
+              "default": "unknown"
+            },
+            "x-ms-summary": "The scan type"
+          },
+          {
+            "name": "scanId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-ms-summary": "The scan id"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/scanStateViewModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "400": {
+            "description": "Payload of CodedMessage",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/codedMessage"
+                },
+                "examples": {
+                  "CodedMessageExample": {
+                    "value": "{\"code\":\"SomeCode\",\"message\":\"Some error message.\",\"data\":null,\"statusCode\":400,\"moreInformation\":null}"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Payload of CodedMessage",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/codedMessage"
+                },
+                "examples": {
+                  "CodedMessageExample": {
+                    "value": "{\"code\":\"SomeCode\",\"message\":\"Some error message.\",\"data\":null,\"statusCode\":400,\"moreInformation\":null}"
+                  }
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No description"
+          }
+        },
+        "security": [
+          {
+            "soos_jwt": [ ]
+          },
+          {
+            "soos_apiKey": [ ]
+          }
+        ]
+      }
+    },
+    "/clients/{clientHash}/projects/{projectHash}/branches/{branchHash}/scan-types/{scanType}/scans/{scanId}/dependencies": {
+      "get": {
+        "tags": [
+          "Scans"
+        ],
+        "operationId": "ScansGetScanDependencies",
+        "parameters": [
+          {
+            "name": "clientHash",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-ms-summary": "The client hash"
+          },
+          {
+            "name": "projectHash",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-ms-summary": "The project hash"
+          },
+          {
+            "name": "branchHash",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-ms-summary": "The branch hash"
+          },
+          {
+            "name": "scanType",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "enum": [
+                "unknown",
+                "sca",
+                "dast"
+              ],
+              "type": "string",
+              "default": "unknown"
+            },
+            "x-ms-summary": "The scan type"
+          },
+          {
+            "name": "scanId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-ms-summary": "The scan id"
+          },
+          {
+            "name": "packageKey",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "x-ms-summary": "The package key to filter to - which will include introduction paths"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Payload of ScaScanDependenciesViewModel",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/scaScanDependenciesViewModel"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Payload of CodedMessage",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/codedMessage"
+                },
+                "examples": {
+                  "CodedMessageExample": {
+                    "value": "{\"code\":\"SomeCode\",\"message\":\"Some error message.\",\"data\":null,\"statusCode\":400,\"moreInformation\":null}"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Payload of CodedMessage",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/codedMessage"
+                },
+                "examples": {
+                  "CodedMessageExample": {
+                    "value": "{\"code\":\"SomeCode\",\"message\":\"Some error message.\",\"data\":null,\"statusCode\":400,\"moreInformation\":null}"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "soos_jwt": [ ]
+          },
+          {
+            "soos_apiKey": [ ]
+          }
+        ]
+      }
+    },
+    "/clients/{clientHash}/projects/{projectHash}/branches/{branchHash}/scan-types/sca/scans": {
+      "post": {
+        "tags": [
+          "Scans"
+        ],
+        "description": "Force an SCA Rescan of a branch.",
+        "operationId": "ScansPostRescan",
+        "parameters": [
+          {
+            "name": "clientHash",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-ms-summary": "The client hash"
+          },
+          {
+            "name": "projectHash",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-ms-summary": "The project hash"
+          },
+          {
+            "name": "branchHash",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-ms-summary": "The branch hash"
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Payload of CodedMessage",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/codedMessage"
+                },
+                "examples": {
+                  "CodedMessageExample": {
+                    "value": "{\"code\":\"SomeCode\",\"message\":\"Some error message.\",\"data\":null,\"statusCode\":400,\"moreInformation\":null}"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Payload of CodedMessage",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/codedMessage"
+                },
+                "examples": {
+                  "CodedMessageExample": {
+                    "value": "{\"code\":\"SomeCode\",\"message\":\"Some error message.\",\"data\":null,\"statusCode\":400,\"moreInformation\":null}"
+                  }
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No description"
+          }
+        },
+        "security": [
+          {
+            "soos_jwt": [ ]
+          },
+          {
+            "soos_apiKey": [ ]
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "addManifestsResponseViewModel": {
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "code": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "projectId": {
+            "type": "string"
+          },
+          "analysisId": {
+            "type": "string"
+          },
+          "validManifestCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "invalidManifestCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "manifests": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/analysisStructureManifestViewModel"
+            }
+          }
+        }
+      },
+      "analysisStructureManifestViewModel": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "filename": {
+            "type": "string"
+          },
+          "packageManager": {
+            "enum": [
+              "Unknown",
+              "Dart",
+              "Erlang",
+              "Go",
+              "Homebrew",
+              "Java",
+              "NPM",
+              "NuGet",
+              "Php",
+              "Python",
+              "Ruby",
+              "Rust",
+              "Swift"
+            ],
+            "type": "string",
+            "default": "Unknown"
+          },
+          "status": {
+            "enum": [
+              "Unknown",
+              "Valid",
+              "OnlyDevDependencies",
+              "OnlyLockFiles",
+              "OnlyNonLockFiles",
+              "NoPackages",
+              "UnknownManifestType",
+              "UnsupportedManifestVersion",
+              "ParsingError",
+              "Empty"
+            ],
+            "type": "string",
+            "default": "Unknown"
+          },
+          "statusMessage": {
+            "type": "string"
+          }
+        }
+      },
+      "attributionViewModel": {
+        "required": [
+          "format",
+          "fileType",
+          "destination"
+        ],
+        "type": "object",
+        "properties": {
+          "format": {
+            "enum": [
+              "Unknown",
+              "Spdx",
+              "CycloneDx",
+              "Sarif",
+              "CsafVex"
+            ],
+            "type": "string",
+            "default": "Unknown"
+          },
+          "fileType": {
+            "enum": [
+              "Unknown",
+              "Text",
+              "Json",
+              "Html",
+              "Xml"
+            ],
+            "type": "string",
+            "default": "Unknown"
+          },
+          "destination": {
+            "enum": [
+              "Unknown",
+              "Download",
+              "Rkvst"
+            ],
+            "type": "string",
+            "default": "Unknown"
+          },
+          "filters": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "All",
+                "License",
+                "PackageUrls",
+                "LicenseText",
+                "Vulnerabilities"
+              ],
+              "type": "string",
+              "default": "All"
+            }
+          }
+        }
+      },
+      "codedMessage": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "statusCode": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "moreInformation": {
+            "$ref": "#/components/schemas/codedMessageMoreInformation"
+          }
+        }
+      },
+      "codedMessageMoreInformation": {
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string",
+            "format": "uri"
+          },
+          "label": {
+            "type": "string"
+          }
+        }
+      },
+      "dependencyTreeNodeViewModel": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string"
+          },
+          "versionSyntax": {
+            "type": "string"
+          },
+          "dependencies": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "introductionPaths": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/iEnumerable_string"
+            }
+          }
+        }
+      },
+      "gitHubRepositoryBranchesViewModel": {
+        "type": "object",
+        "properties": {
+          "repositoryId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "branchNames": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "gitHubRepositoryInputViewModel": {
+        "required": [
+          "repositoryId",
+          "repositoryName",
+          "ref"
+        ],
+        "type": "object",
+        "properties": {
+          "repositoryId": {
+            "maximum": 9223372036854775806,
+            "minimum": 1,
+            "type": "integer",
+            "format": "int64"
+          },
+          "repositoryName": {
+            "maxLength": 1000,
+            "minLength": 1,
+            "type": "string"
+          },
+          "ref": {
+            "maxLength": 1000,
+            "minLength": 1,
+            "type": "string"
+          }
+        }
+      },
+      "gitHubRepositoryViewModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "name": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "description": {
+            "type": "string"
+          },
+          "defaultBranch": {
+            "type": "string"
+          },
+          "private": {
+            "type": "boolean"
+          }
+        }
+      },
+      "gitHubUpdateAppInstallationViewModel": {
+        "required": [
+          "installationId"
+        ],
+        "type": "object",
+        "properties": {
+          "installationId": {
+            "maximum": 9223372036854775806,
+            "minimum": 1,
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "gitWebhook": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string"
+          },
+          "ref": {
+            "type": "string"
+          },
+          "pusher": {
+            "$ref": "#/components/schemas/gitWebhookUserInfo"
+          },
+          "repository": {
+            "$ref": "#/components/schemas/gitWebhookRepository"
+          },
+          "installation": {
+            "$ref": "#/components/schemas/gitWebhookInstallation"
+          },
+          "head_commit": {
+            "$ref": "#/components/schemas/gitWebhookCommit"
+          }
+        }
+      },
+      "gitWebhookAuthorInfo": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "userName": {
+            "type": "string"
+          }
+        }
+      },
+      "gitWebhookCommit": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "tree_id": {
+            "type": "string"
+          },
+          "author": {
+            "$ref": "#/components/schemas/gitWebhookAuthorInfo"
+          },
+          "committer": {
+            "$ref": "#/components/schemas/gitWebhookAuthorInfo"
+          },
+          "added": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "modified": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "gitWebhookInstallation": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "gitWebhookRepository": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "name": {
+            "type": "string"
+          },
+          "owner": {
+            "$ref": "#/components/schemas/gitWebhookUserInfo"
+          }
+        }
+      },
+      "gitWebhookUserInfo": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          }
+        }
+      },
+      "iEnumerable_string": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "internalPackageViewModel": {
+        "type": "object",
+        "properties": {
+          "packageManager": {
+            "enum": [
+              "Unknown",
+              "Dart",
+              "Erlang",
+              "Go",
+              "Homebrew",
+              "Java",
+              "NPM",
+              "NuGet",
+              "Php",
+              "Python",
+              "Ruby",
+              "Rust",
+              "Swift"
+            ],
+            "type": "string",
+            "default": "Unknown"
+          },
+          "packageId": {
+            "type": "string"
+          },
+          "packageVersion": {
+            "type": "string"
+          },
+          "projectName": {
+            "type": "string"
+          },
+          "projectHash": {
+            "type": "string"
+          },
+          "linked": {
+            "type": "boolean"
+          }
+        }
+      },
+      "issueSourceSeverityViewModel": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "enum": [
+              "None",
+              "Vulnerability",
+              "Violation",
+              "DependencySubstitution",
+              "DependencyTypo",
+              "Dast"
+            ],
+            "type": "string",
+            "default": "None"
+          },
+          "severity": {
+            "enum": [
+              "Unknown",
+              "None",
+              "Info",
+              "Low",
+              "Medium",
+              "High",
+              "Critical"
+            ],
+            "type": "string",
+            "default": "Unknown"
+          }
+        }
+      },
+      "manifestReferencePackageViewModel": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string"
+          },
+          "packageManager": {
+            "enum": [
+              "Unknown",
+              "Dart",
+              "Erlang",
+              "Go",
+              "Homebrew",
+              "Java",
+              "NPM",
+              "NuGet",
+              "Php",
+              "Python",
+              "Ruby",
+              "Rust",
+              "Swift"
+            ],
+            "type": "string",
+            "default": "Unknown"
+          },
+          "packageId": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "referencedManifestName": {
+            "type": "string"
+          }
+        }
+      },
+      "multipartFormDataFileViewModel": {
+        "type": "object",
+        "properties": {
+          "theFile": {
+            "type": "string",
+            "format": "binary"
+          }
+        }
+      },
+      "multipartManifestFormDataViewModel": {
+        "type": "object",
+        "properties": {
+          "parentFolder": {
+            "type": "string"
+          },
+          "target": {
+            "type": "string"
+          },
+          "targetVersion": {
+            "type": "string"
+          },
+          "fileName": {
+            "type": "string"
+          },
+          "filePosition": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fileContent": {
+            "type": "string",
+            "format": "binary"
+          }
+        }
+      },
+      "sarifArtifactLocation": {
+        "type": "object",
+        "properties": {
+          "uri": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      },
+      "sarifDriver": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "fullName": {
+            "type": "string"
+          },
+          "product": {
+            "type": "string"
+          },
+          "shortDescription": {
+            "$ref": "#/components/schemas/sarifText"
+          },
+          "fullDescription": {
+            "$ref": "#/components/schemas/sarifText"
+          },
+          "informationUri": {
+            "type": "string",
+            "format": "uri"
+          },
+          "version": {
+            "type": "string"
+          },
+          "rules": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/sarifRule"
+            }
+          }
+        }
+      },
+      "sarifHelp": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string"
+          },
+          "markdown": {
+            "type": "string"
+          }
+        }
+      },
+      "sarifLocation": {
+        "type": "object",
+        "properties": {
+          "physicalLocation": {
+            "$ref": "#/components/schemas/sarifPhysicalLocation"
+          }
+        }
+      },
+      "sarifPhysicalLocation": {
+        "type": "object",
+        "properties": {
+          "artifactLocation": {
+            "$ref": "#/components/schemas/sarifArtifactLocation"
+          },
+          "region": {
+            "$ref": "#/components/schemas/sarifRegion"
+          }
+        }
+      },
+      "sarifProperties": {
+        "type": "object",
+        "properties": {
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "sarifRegion": {
+        "type": "object",
+        "properties": {
+          "startLine": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "sarifResult": {
+        "type": "object",
+        "properties": {
+          "ruleId": {
+            "type": "string"
+          },
+          "ruleIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "level": {
+            "enum": [
+              "none",
+              "warning",
+              "error",
+              "note"
+            ],
+            "type": "string",
+            "default": "none"
+          },
+          "message": {
+            "$ref": "#/components/schemas/sarifText"
+          },
+          "locations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/sarifLocation"
+            }
+          }
+        }
+      },
+      "sarifRoot": {
+        "type": "object",
+        "properties": {
+          "runs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/sarifRun"
+            }
+          }
+        }
+      },
+      "sarifRule": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "fullDescription": {
+            "$ref": "#/components/schemas/sarifText"
+          },
+          "help": {
+            "$ref": "#/components/schemas/sarifHelp"
+          },
+          "helpUri": {
+            "type": "string",
+            "format": "uri"
+          },
+          "properties": {
+            "$ref": "#/components/schemas/sarifProperties"
+          }
+        }
+      },
+      "sarifRun": {
+        "type": "object",
+        "properties": {
+          "tool": {
+            "$ref": "#/components/schemas/sarifTool"
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/sarifResult"
+            }
+          }
+        }
+      },
+      "sarifText": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string"
+          },
+          "markdown": {
+            "type": "string"
+          }
+        }
+      },
+      "sarifTool": {
+        "type": "object",
+        "properties": {
+          "driver": {
+            "$ref": "#/components/schemas/sarifDriver"
+          }
+        }
+      },
+      "scanCreatedViewModel": {
+        "type": "object",
+        "properties": {
+          "clientHash": {
+            "type": "string"
+          },
+          "projectHash": {
+            "type": "string"
+          },
+          "branchHash": {
+            "type": "string"
+          },
+          "scanId": {
+            "type": "string"
+          },
+          "analysisId": {
+            "type": "string"
+          },
+          "scanType": {
+            "enum": [
+              "Unknown",
+              "Sca",
+              "Dast"
+            ],
+            "type": "string",
+            "default": "Unknown"
+          },
+          "scanUrl": {
+            "type": "string",
+            "format": "uri"
+          },
+          "scanSarifUrl": {
+            "type": "string",
+            "format": "uri"
+          },
+          "scanStatusUrl": {
+            "type": "string",
+            "format": "uri"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/codedMessage"
+            }
+          }
+        }
+      },
+      "scanCreationMetadataViewModel": {
+        "required": [
+          "projectName"
+        ],
+        "type": "object",
+        "properties": {
+          "projectName": {
+            "maxLength": 200,
+            "minLength": 1,
+            "type": "string"
+          },
+          "toolName": {
+            "maxLength": 100,
+            "type": "string"
+          },
+          "toolVersion": {
+            "maxLength": 50,
+            "type": "string"
+          },
+          "scanMode": {
+            "maxLength": 100,
+            "type": "string"
+          },
+          "commitHash": {
+            "maxLength": 50,
+            "type": "string"
+          },
+          "branch": {
+            "maxLength": 200,
+            "type": "string"
+          },
+          "buildVersion": {
+            "maxLength": 100,
+            "type": "string"
+          },
+          "buildUri": {
+            "type": "string",
+            "format": "uri"
+          },
+          "branchUri": {
+            "type": "string",
+            "format": "uri"
+          },
+          "integrationType": {
+            "enum": [
+              "None",
+              "IDE",
+              "Script",
+              "Webhook",
+              "Plugin",
+              "AppRepo",
+              "AppUpload"
+            ],
+            "type": "string",
+            "default": "None"
+          },
+          "operatingEnvironment": {
+            "maxLength": 100,
+            "type": "string"
+          },
+          "integrationName": {
+            "maxLength": 50,
+            "type": "string"
+          },
+          "scriptVersion": {
+            "maxLength": 50,
+            "type": "string"
+          },
+          "appVersion": {
+            "maxLength": 50,
+            "type": "string"
+          }
+        }
+      },
+      "scanStateViewModel": {
+        "required": [
+          "status",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "enum": [
+              "Unknown",
+              "Queued",
+              "Running",
+              "LocatingIssues",
+              "Finished",
+              "FailedWithIssues",
+              "Incomplete",
+              "Error"
+            ],
+            "type": "string",
+            "default": "Unknown"
+          },
+          "message": {
+            "maxLength": 1000,
+            "minLength": 1,
+            "type": "string"
+          }
+        }
+      },
+      "scanStatusResultViewModel": {
+        "type": "object",
+        "properties": {
+          "count": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "scanStatusViewModel": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "enum": [
+              "Unknown",
+              "Queued",
+              "Running",
+              "LocatingIssues",
+              "Finished",
+              "FailedWithIssues",
+              "Incomplete",
+              "Error"
+            ],
+            "type": "string",
+            "default": "Unknown"
+          },
+          "violations": {
+            "$ref": "#/components/schemas/scanStatusResultViewModel"
+          },
+          "vulnerabilities": {
+            "$ref": "#/components/schemas/scanStatusResultViewModel"
+          },
+          "clientHash": {
+            "type": "string"
+          },
+          "projectHash": {
+            "type": "string"
+          },
+          "branchHash": {
+            "type": "string"
+          },
+          "scanId": {
+            "type": "string"
+          },
+          "analysisId": {
+            "type": "string"
+          },
+          "scanType": {
+            "enum": [
+              "Unknown",
+              "Sca",
+              "Dast"
+            ],
+            "type": "string",
+            "default": "Unknown"
+          },
+          "scanUrl": {
+            "type": "string",
+            "format": "uri"
+          },
+          "scanSarifUrl": {
+            "type": "string",
+            "format": "uri"
+          },
+          "scanStatusUrl": {
+            "type": "string",
+            "format": "uri"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/codedMessage"
+            }
+          }
+        }
+      },
+      "scaScanDependenciesViewModel": {
+        "type": "object",
+        "properties": {
+          "manifests": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/scaScanManifestViewModel"
+            }
+          },
+          "packages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/scaScanDependencyViewModel"
+            }
+          },
+          "unknownPackages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/scaScanDependencyViewModel"
+            }
+          },
+          "exceededMaxDepthPackages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/scaScanDependencyViewModel"
+            }
+          },
+          "trimmedDependencyPackages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/scaScanDependencyViewModel"
+            }
+          },
+          "internalPackages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/internalPackageViewModel"
+            }
+          },
+          "manifestReferencePackages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/manifestReferencePackageViewModel"
+            }
+          },
+          "vulnerablePackages": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/iEnumerable_string"
+            }
+          },
+          "licenseUsage": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/iEnumerable_string"
+            }
+          }
+        }
+      },
+      "scaScanDependencyViewModel": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string"
+          },
+          "packageManager": {
+            "enum": [
+              "Unknown",
+              "Dart",
+              "Erlang",
+              "Go",
+              "Homebrew",
+              "Java",
+              "NPM",
+              "NuGet",
+              "Php",
+              "Python",
+              "Ruby",
+              "Rust",
+              "Swift"
+            ],
+            "type": "string",
+            "default": "Unknown"
+          },
+          "packageId": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "isUnknown": {
+            "type": "boolean"
+          },
+          "isInternal": {
+            "type": "boolean"
+          },
+          "issues": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/issueSourceSeverityViewModel"
+            }
+          }
+        }
+      },
+      "scaScanManifestViewModel": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "enum": [
+              "Unknown",
+              "Valid",
+              "OnlyDevDependencies",
+              "OnlyLockFiles",
+              "OnlyNonLockFiles",
+              "NoPackages",
+              "UnknownManifestType",
+              "UnsupportedManifestVersion",
+              "ParsingError",
+              "Empty"
+            ],
+            "type": "string",
+            "default": "Unknown"
+          },
+          "statusMessage": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "target": {
+            "type": "string"
+          },
+          "packageManager": {
+            "enum": [
+              "Unknown",
+              "Dart",
+              "Erlang",
+              "Go",
+              "Homebrew",
+              "Java",
+              "NPM",
+              "NuGet",
+              "Php",
+              "Python",
+              "Ruby",
+              "Rust",
+              "Swift"
+            ],
+            "type": "string",
+            "default": "Unknown"
+          },
+          "directDependencies": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "dependencySubtrees": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/dependencyTreeNodeViewModel"
+            }
+          }
+        }
+      },
+      "supportedManifestsViewModel": {
+        "type": "object",
+        "properties": {
+          "packageManager": {
+            "enum": [
+              "Unknown",
+              "Dart",
+              "Erlang",
+              "Go",
+              "Homebrew",
+              "Java",
+              "NPM",
+              "NuGet",
+              "Php",
+              "Python",
+              "Ruby",
+              "Rust",
+              "Swift"
+            ],
+            "type": "string",
+            "default": "Unknown"
+          },
+          "manifests": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/supportedManifestViewModel"
+            }
+          }
+        }
+      },
+      "supportedManifestViewModel": {
+        "type": "object",
+        "properties": {
+          "pattern": {
+            "type": "string"
+          },
+          "isLockFile": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "soos_jwt": {
+        "type": "apiKey",
+        "description": "The JWT authorization header prefixed with 'Bearer '",
+        "name": "Authorization",
+        "in": "header"
+      },
+      "soos_apiKey": {
+        "type": "apiKey",
+        "description": "The x-soos-apikey header value.",
+        "name": "x-soos-apikey",
+        "in": "header"
+      }
+    }
+  }
+}
