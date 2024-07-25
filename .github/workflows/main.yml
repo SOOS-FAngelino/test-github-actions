@@ -15,7 +15,7 @@ jobs:
           api_key: ${{ secrets.QA_SOOS_API_KEY }}
           scan_mode: "apiscan"
           api_scan_format: "openapi"
-          target_url: "short-analysis-openapi.json"
+          target_uri: "short-analysis-openapi.json"
           project_name: ${{ github.repository }}
           api_url: "https://qa-api.soos.io/api/"
           verbose: "true"
