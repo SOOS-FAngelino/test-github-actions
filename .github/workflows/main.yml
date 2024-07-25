@@ -18,6 +18,7 @@ jobs:
           target_url: "https://www.dataaccess.com/webservicesserver/NumberConversion.wso"
           project_name: 'DAST Apiscan soap'
           #project_name: ${{ github.repository }}
+          request_eeaders: "invalid"
           api_url: "https://qa-api.soos.io/api/"
           verbose: "true"
           #debug: "false"
