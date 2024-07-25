@@ -17,7 +17,7 @@ jobs:
           #api_scan_format: "soap"
           target_url: https://brokencrystals.com/
           #target_url: "https://www.dataaccess.com/webservicesserver/NumberConversion.wso"
-          project_name: 'DAST Apiscan soap'
+          project_name: 'DAST Github Actions'
           #project_name: ${{ github.repository }}
           #request_eeaders: "invalid"
           api_url: "https://qa-api.soos.io/api/"
