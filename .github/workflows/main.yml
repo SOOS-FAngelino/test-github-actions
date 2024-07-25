@@ -13,15 +13,13 @@ jobs:
         with:
           client_id: ${{ secrets.QA_SOOS_CLIENT_ID }}
           api_key: ${{ secrets.QA_SOOS_API_KEY }}
-          scan_mode: "baseline"
-          #api_scan_format: "invalid"
-          target_url: "https://brokencrystals.com/"
-          project_name: ${{ github.repository }}
+          scan_mode: "apiscan"
+          api_scan_format: "soap"
+          target_url: "https://www.dataaccess.com/webservicesserver/NumberConversion.wso"
+          project_name: 'DAST Apiscan soap'
+          #project_name: ${{ github.repository }}
           api_url: "https://qa-api.soos.io/api/"
           verbose: "true"
           #debug: "false"
           #other_options: "-d"          
-          request_headers: "headerTestA:a,headerTestB:b"
-          request_cookies: "cookie1:a,cookie2:b"
-          bearer_token: "invalidValue"
-          
+        
