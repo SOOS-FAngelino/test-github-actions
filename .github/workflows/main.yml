@@ -14,8 +14,8 @@ jobs:
           client_id: ${{ secrets.QA_SOOS_CLIENT_ID }}
           api_key: ${{ secrets.QA_SOOS_API_KEY }}
           scan_mode: "apiscan"
-          api_scan_format: "openapi"
-          target_url: "short-analysis-openapi.json"
+          api_scan_format: "invalid"
+          target_url: "https://demoqa.com/api"
           project_name: ${{ github.repository }}
           api_url: "https://qa-api.soos.io/api/"
           verbose: "true"
