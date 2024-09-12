@@ -8,7 +8,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Run SOOS - Scan for vulnerabilities
-      uses: soos-io/soos-sca-github-action@a816c5c6b56afb5168c60144b8d260852c24cc87
+      uses: soos-io/soos-sca-github-action@v2
       with:
         project_name: ${{ github.repository }}
         api_url: "https://qa-api.soos.io/api/"
