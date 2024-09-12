@@ -20,4 +20,5 @@ jobs:
           sbom_path: "sbom files/spdx/org.keycloak_keycloak-core_v24.0.4.java.spdx.json"
           verbose: true
           sbom_version: 1.0.0-pre.11
+          branch: 'invalid-branch'
           #on_failure: 'invalid'
