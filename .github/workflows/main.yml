@@ -16,6 +16,6 @@ jobs:
           api_key: ${{ secrets.QA_SOOS_API_KEY }}
           api_url: 'https://qa-api.soos.io/api/'
           project_name: "SBOM Github Actions Test"
-          sbom_path: "/"
+          sbom_path: "semver_v5.0.0.npm.spdx.json"
           verbose: true
           sbom_version: 1.0.0-pre.11
