@@ -5,7 +5,11 @@ jobs:
   synchronous-analysis-with-blocking-result:
     name: SOOS SCA Scan
     runs-on: ubuntu-latest
+    
     steps:
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 20
     - uses: actions/checkout@master
     - name: Run SOOS - Scan for vulnerabilities
       uses: soos-io/soos-sca-github-action@v2
@@ -16,3 +20,4 @@ jobs:
         client_id: ${{ secrets.QA_SOOS_CLIENT_ID }}
         api_key: ${{ secrets.QA_SOOS_API_KEY }}
         verbose: true
+        log_level: DEBUG
