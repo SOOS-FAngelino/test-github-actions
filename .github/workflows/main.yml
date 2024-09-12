@@ -16,7 +16,7 @@ jobs:
           api_key: ${{ secrets.QA_SOOS_API_KEY }}
           api_url: 'https://qa-api.soos.io/api/'
           project_name: "SBOM Github Actions Test"
-          sbom_path: "dbom-files/cyclonedx/indico_v3.2.8.python.cdx.json"          
+          sbom_path: "sbom-files/cyclonedx/indico_v3.2.8.python.cdx.json"          
           log_level: DEBUG
           sbom_version: 1.0.0-pre.11
           on_failure: 'fail_the_build'
