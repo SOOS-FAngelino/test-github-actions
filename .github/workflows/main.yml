@@ -10,7 +10,7 @@ jobs:
           node-version: 20
       - uses: actions/checkout@master
       - name: Run SOOS SBOM Scan
-        uses: soos-io/soos-sbom-github-action@v1.0.0 # GET Latest Version from https://github.com/marketplace/actions/soos-sbom
+        uses: soos-io/soos-sbom-github-action@b30787d28d18ae0b29dea520cf2e8293c37c3998 # GET Latest Version from https://github.com/marketplace/actions/soos-sbom
         with:
           client_id: ${{ secrets.QA_SOOS_CLIENT_ID }}
           api_key: ${{ secrets.QA_SOOS_API_KEY }}
