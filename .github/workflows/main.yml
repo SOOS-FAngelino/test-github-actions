@@ -22,4 +22,4 @@ jobs:
           log_level: WARN
           #sbom_version: 1.0.0-pre.11
           #branch_name: 'new-branch'
-          on_failure: 'continue_on_failure'
+          on_failure: 'fail_the_build'
