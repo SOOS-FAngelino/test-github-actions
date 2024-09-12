@@ -18,4 +18,4 @@ jobs:
           project_name: "SBOM Github Actions Test"
           sbom_path: "./"
           verbose: true
-          script_version: 1.0.0-pre.11
+          #script_version: 1.0.0-pre.11
