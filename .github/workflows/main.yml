@@ -20,3 +20,4 @@ jobs:
           log_level: DEBUG
           sbom_version: 1.0.0-pre.11
           on_failure: 'invalid'
+          output_format: SARIF
