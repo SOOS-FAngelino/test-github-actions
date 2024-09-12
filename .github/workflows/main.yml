@@ -19,6 +19,6 @@ jobs:
           #sbom_path: "graphql_v16.8.1.npm.cdx.json"
           sbom_path: "sbom-files/spdx/org.keycloak_keycloak-core_v24.0.4.java.spdx.json"
           log_level: WARN
-          sbom_version: 1.0.0-pre.11
+          #sbom_version: 1.0.0-pre.11
           #branch_name: 'new-branch'
           on_failure: 'continue_on_failure'
