@@ -5,9 +5,12 @@ jobs:
     name: SOOS SAST Analysis Example
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
       - uses: actions/checkout@master
       - name: Run SOOS SAST Analysis
-        uses: soos-io/soos-sast-github-action@1e08c26a985b73e05ab40b7096dd8465711ec0e6 # GET Latest Version from https://github.com/marketplace/actions/soos-sast
+        uses: soos-io/soos-sast-github-action@v1 # GET Latest Version from https://github.com/marketplace/actions/soos-sast
         with:
           client_id: ${{ secrets.QA_SOOS_CLIENT_ID }}
           api_key: ${{ secrets.QA_SOOS_API_KEY }}
@@ -18,6 +21,6 @@ jobs:
           #files_to_exclude: "new-project/BuildOutput.sarif.json"
           #branch_name: 'sast-integration-test-2'
           #build_version: '1.0.0'
-          #log_level: 'DEBUG'
+          log_level: 'DEBUG'
           verbose: true
-          on_failure: 'continue_on_failure'
+          #on_failure: 'continue_on_failure'
