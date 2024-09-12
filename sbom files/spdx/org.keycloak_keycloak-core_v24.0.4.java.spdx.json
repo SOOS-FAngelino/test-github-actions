@@ -1,0 +1,244 @@
+{
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "spdxVersion": "SPDX-2.3",
+  "dataLicense": "CC0-1.0",
+  "name": "org.keycloak/keycloak-core",
+  "documentNamespace": "https://app.soos.io/spdxdocs/soos/org.keycloak_keycloak_core-24.0.4-544681e3-d44d-49e7-885a-654839450705",
+  "comment": "SOOS is providing this SBOM for non-commercial use. By downloading an SBOM from SOOS, you agree to all applicable terms at https://soos.io/terms-of-service. If you are interested in commercial SBOM access please contact sales@soos.io",
+  "creationInfo": {
+    "created": "2024-09-11T19:29:18Z",
+    "creators": [
+      "Organization: SOOS LLC ()",
+      "Person:   (support@soos.io)",
+      "Tool: SOOS SCA-33.8.30.2"
+    ],
+    "comment": "SOOS SCA scan against pkg:maven/org.keycloak/keycloak-core@24.0.4",
+    "licenseListVersion": "3.9"
+  },
+  "packages": [
+    {
+      "SPDXID": "SPDXRef-JAVA-COM.FASTERXML.JACKSON.CORE-JACKSON-ANNOTATIONS-2.16.1",
+      "name": "com.fasterxml.jackson.core/jackson-annotations",
+      "versionInfo": "2.16.1",
+      "downloadLocation": "https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-annotations/2.16.1",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "fd441d574a71e7d10a4f73de6609f881d8cdfeec"
+        }
+      ],
+      "homepage": "https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-annotations/2.16.1",
+      "licenseDeclared": "Apache-2.0",
+      "licenseConcluded": "Apache-2.0",
+      "externalRefs": [
+        {
+          "referenceCategory": "OTHER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:maven/com.fasterxml.jackson.core/jackson-annotations@2.16.1"
+        }
+      ],
+      "supplier": "Person: Tatu Saloranta (tatu@fasterxml.com)",
+      "originator": "NOASSERTION",
+      "primaryPackagePurpose": "LIBRARY",
+      "filesAnalyzed": false
+    },
+    {
+      "SPDXID": "SPDXRef-JAVA-COM.FASTERXML.JACKSON.CORE-JACKSON-CORE-2.16.1",
+      "name": "com.fasterxml.jackson.core/jackson-core",
+      "versionInfo": "2.16.1",
+      "downloadLocation": "https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core/2.16.1",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "9456bb3cdd0f79f91a5f730a1b1bb041a380c91f"
+        }
+      ],
+      "homepage": "https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core/2.16.1",
+      "licenseDeclared": "Apache-2.0",
+      "licenseConcluded": "Apache-2.0",
+      "externalRefs": [
+        {
+          "referenceCategory": "OTHER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:maven/com.fasterxml.jackson.core/jackson-core@2.16.1"
+        }
+      ],
+      "supplier": "Person: Tatu Saloranta (tatu@fasterxml.com)",
+      "originator": "NOASSERTION",
+      "primaryPackagePurpose": "LIBRARY",
+      "filesAnalyzed": false
+    },
+    {
+      "SPDXID": "SPDXRef-JAVA-COM.FASTERXML.JACKSON.CORE-JACKSON-DATABIND-2.16.1",
+      "name": "com.fasterxml.jackson.core/jackson-databind",
+      "versionInfo": "2.16.1",
+      "downloadLocation": "https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind/2.16.1",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "02a16efeb840c45af1e2f31753dfe76795278b73"
+        }
+      ],
+      "homepage": "https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind/2.16.1",
+      "licenseDeclared": "Apache-2.0",
+      "licenseConcluded": "Apache-2.0",
+      "externalRefs": [
+        {
+          "referenceCategory": "OTHER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:maven/com.fasterxml.jackson.core/jackson-databind@2.16.1"
+        }
+      ],
+      "supplier": "Person: Tatu Saloranta (tatu@fasterxml.com)",
+      "originator": "NOASSERTION",
+      "primaryPackagePurpose": "LIBRARY",
+      "filesAnalyzed": false
+    },
+    {
+      "SPDXID": "SPDXRef-JAVA-JAKARTA.ACTIVATION-JAKARTA.ACTIVATION-API-2.1.2",
+      "name": "jakarta.activation/jakarta.activation-api",
+      "versionInfo": "2.1.2",
+      "downloadLocation": "https://mvnrepository.com/artifact/jakarta.activation/jakarta.activation-api/2.1.2",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "640c0d5aff45dbff1e1a1bc09673ff3a02b1ba12"
+        }
+      ],
+      "homepage": "https://mvnrepository.com/artifact/jakarta.activation/jakarta.activation-api/2.1.2",
+      "licenseDeclared": "BSD-3-Clause",
+      "licenseConcluded": "BSD-3-Clause",
+      "externalRefs": [
+        {
+          "referenceCategory": "OTHER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:maven/jakarta.activation/jakarta.activation-api@2.1.2"
+        }
+      ],
+      "supplier": "Person: Bill Shannon (bill.shannon@oracle.com)",
+      "originator": "NOASSERTION",
+      "primaryPackagePurpose": "LIBRARY",
+      "filesAnalyzed": false
+    },
+    {
+      "SPDXID": "SPDXRef-JAVA-ORG.ECLIPSE.MICROPROFILE.OPENAPI-MICROPROFILE-OPENAPI-API-3.1.1",
+      "name": "org.eclipse.microprofile.openapi/microprofile-openapi-api",
+      "versionInfo": "3.1.1",
+      "downloadLocation": "https://mvnrepository.com/artifact/org.eclipse.microprofile.openapi/microprofile-openapi-api/3.1.1",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "24d319e0caeca078d2bc748d063ba4f7239d44dc"
+        }
+      ],
+      "homepage": "https://mvnrepository.com/artifact/org.eclipse.microprofile.openapi/microprofile-openapi-api/3.1.1",
+      "licenseDeclared": "Apache-2.0",
+      "licenseConcluded": "Apache-2.0",
+      "externalRefs": [
+        {
+          "referenceCategory": "OTHER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:maven/org.eclipse.microprofile.openapi/microprofile-openapi-api@3.1.1"
+        }
+      ],
+      "supplier": "Person: Arthur De Magalhaes",
+      "originator": "NOASSERTION",
+      "primaryPackagePurpose": "LIBRARY",
+      "filesAnalyzed": false
+    },
+    {
+      "SPDXID": "SPDXRef-JAVA-ORG.KEYCLOAK-KEYCLOAK-COMMON-24.0.4",
+      "name": "org.keycloak/keycloak-common",
+      "versionInfo": "24.0.4",
+      "downloadLocation": "https://mvnrepository.com/artifact/org.keycloak/keycloak-common/24.0.4",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "7da20eb8450a5de58ccc5288ad2226076a746eb2"
+        }
+      ],
+      "homepage": "https://mvnrepository.com/artifact/org.keycloak/keycloak-common/24.0.4",
+      "licenseDeclared": "Apache-2.0",
+      "licenseConcluded": "Apache-2.0",
+      "externalRefs": [
+        {
+          "referenceCategory": "OTHER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:maven/org.keycloak/keycloak-common@24.0.4"
+        }
+      ],
+      "supplier": "Person: Keycloak Team",
+      "originator": "NOASSERTION",
+      "primaryPackagePurpose": "LIBRARY",
+      "filesAnalyzed": false
+    },
+    {
+      "SPDXID": "SPDXRef-JAVA-ORG.KEYCLOAK-KEYCLOAK-CORE-24.0.4",
+      "name": "org.keycloak/keycloak-core",
+      "versionInfo": "24.0.4",
+      "downloadLocation": "https://mvnrepository.com/artifact/org.keycloak/keycloak-core/24.0.4",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "73b44d20a521f633bef9c178087612b6ecbc4163"
+        }
+      ],
+      "homepage": "https://mvnrepository.com/artifact/org.keycloak/keycloak-core/24.0.4",
+      "licenseDeclared": "Apache-2.0",
+      "licenseConcluded": "Apache-2.0",
+      "externalRefs": [
+        {
+          "referenceCategory": "OTHER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:maven/org.keycloak/keycloak-core@24.0.4"
+        }
+      ],
+      "supplier": "Person: Keycloak Team",
+      "originator": "NOASSERTION",
+      "primaryPackagePurpose": "LIBRARY",
+      "filesAnalyzed": false
+    }
+  ],
+  "relationships": [
+    {
+      "spdxElementId": "SPDXRef-JAVA-COM.FASTERXML.JACKSON.CORE-JACKSON-DATABIND-2.16.1",
+      "relatedSpdxElement": "SPDXRef-JAVA-COM.FASTERXML.JACKSON.CORE-JACKSON-ANNOTATIONS-2.16.1",
+      "relationshipType": "DEPENDS_ON"
+    },
+    {
+      "spdxElementId": "SPDXRef-JAVA-COM.FASTERXML.JACKSON.CORE-JACKSON-DATABIND-2.16.1",
+      "relatedSpdxElement": "SPDXRef-JAVA-COM.FASTERXML.JACKSON.CORE-JACKSON-CORE-2.16.1",
+      "relationshipType": "DEPENDS_ON"
+    },
+    {
+      "spdxElementId": "SPDXRef-JAVA-ORG.KEYCLOAK-KEYCLOAK-COMMON-24.0.4",
+      "relatedSpdxElement": "SPDXRef-JAVA-JAKARTA.ACTIVATION-JAKARTA.ACTIVATION-API-2.1.2",
+      "relationshipType": "DEPENDS_ON"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-JAVA-ORG.KEYCLOAK-KEYCLOAK-CORE-24.0.4",
+      "relationshipType": "DESCRIBES"
+    },
+    {
+      "spdxElementId": "SPDXRef-JAVA-ORG.KEYCLOAK-KEYCLOAK-CORE-24.0.4",
+      "relatedSpdxElement": "SPDXRef-JAVA-COM.FASTERXML.JACKSON.CORE-JACKSON-CORE-2.16.1",
+      "relationshipType": "DEPENDS_ON"
+    },
+    {
+      "spdxElementId": "SPDXRef-JAVA-ORG.KEYCLOAK-KEYCLOAK-CORE-24.0.4",
+      "relatedSpdxElement": "SPDXRef-JAVA-COM.FASTERXML.JACKSON.CORE-JACKSON-DATABIND-2.16.1",
+      "relationshipType": "DEPENDS_ON"
+    },
+    {
+      "spdxElementId": "SPDXRef-JAVA-ORG.KEYCLOAK-KEYCLOAK-CORE-24.0.4",
+      "relatedSpdxElement": "SPDXRef-JAVA-ORG.ECLIPSE.MICROPROFILE.OPENAPI-MICROPROFILE-OPENAPI-API-3.1.1",
+      "relationshipType": "DEPENDS_ON"
+    },
+    {
+      "spdxElementId": "SPDXRef-JAVA-ORG.KEYCLOAK-KEYCLOAK-CORE-24.0.4",
+      "relatedSpdxElement": "SPDXRef-JAVA-ORG.KEYCLOAK-KEYCLOAK-COMMON-24.0.4",
+      "relationshipType": "DEPENDS_ON"
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:c469e831-c968-4a7c-b4e2-652694e257f9",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2024-09-11T19:29:12Z",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "name": "SOOS SCA",
+          "version": "33.8.30.2",
+          "externalReferences": [
+            {
+              "url": "https://soos.io/",
+              "type": "website"
+            },
+            {
+              "url": "https://soos.io/terms-of-service",
+              "type": "license",
+              "comment": "SOOS is providing this SBOM for non-commercial use. By downloading an SBOM from SOOS, you agree to all applicable terms at https://soos.io/terms-of-service. If you are interested in commercial SBOM access please contact sales@soos.io"
+            }
+          ]
+        }
+      ]
+    },
+    "authors": [
+      {
+        "email": "support@soos.io"
+      }
+    ],
+    "component": {
+      "type": "library",
+      "author": "  (support@soos.io)",
+      "publisher": "SOOS",
+      "name": "indico",
+      "version": "3.2.8",
+      "description": "SOOS SCA scan against pkg:pypi/indico@3.2.8",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "ebdd92cb87b26399ee7d11a7f5771bf77da8b69246200b8fe2632ead95741635"
+        }
+      ]
+    },
+    "licenses": [
+      {
+        "license": {
+          "id": "CC0-1.0"
+        }
+      }
+    ]
+  },
+  "components": [
+    {
+      "type": "library",
+      "bom-ref": "pkg:pypi/indico@3.2.8",
+      "supplier": {
+        "contact": []
+      },
+      "name": "indico",
+      "version": "3.2.8",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "727d6965a44bc92d2e50913acf56a3e90dcd74c02860dac637bc592d5e785a67"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:pypi/indico@3.2.8",
+      "externalReferences": [
+        {
+          "url": "https://pypi.org/project/indico/3.2.8",
+          "type": "website"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "pkg:pypi/indico@3.2.8",
+      "dependsOn": []
+    }
+  ],
+  "compositions": [
+    {
+      "aggregate": "complete",
+      "dependencies": [
+        "pkg:pypi/indico@3.2.8"
+      ]
+    }
+  ]
+}
