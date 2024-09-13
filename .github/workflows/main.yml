@@ -19,5 +19,6 @@ jobs:
           sbom_path: "sbom-files/cyclonedx/indico_v3.2.8.python.cdx.json"          
           verbose: true
           log_level: DEBUG
+          on_failure: invalid
           #sbom_version: 1.0.0-pre.11
           #output_format: SARIF
