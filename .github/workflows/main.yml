@@ -18,9 +18,9 @@ jobs:
           project_name: "SAST Github Actions Test"
           sast_version: 1.0.4-pre.1
           #sast_path: "../../"
-          #directories_to_exclude: "projectB/**"
+          directories_to_exclude: "projectB/**"
           #files_to_exclude: "new-project/BuildOutput.sarif.json"
-          branch_name: 'regression-test'
+          #branch_name: 'regression-test'
           #build_version: '1.0.0'
           #log_level: 'DEBUG'
           #verbose: true
