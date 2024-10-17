@@ -18,8 +18,8 @@ jobs:
           project_name: "SAST Github Actions Test"
           sast_version: 1.0.4-pre.1
           #sast_path: "../../"
-          directories_to_exclude: "ProjectB/sarif-files/**" 
-          #files_to_exclude: "new-project/BuildOutput.sarif.json"
+          #directories_to_exclude: "ProjectB/sarif-files/**" 
+          files_to_exclude: "**/sarif-files/image_resizer_semgrep_output.sarif.json"
           #branch_name: 'regression-test'
           #build_version: '1.0.0'
           #log_level: 'DEBUG'
