@@ -1,8 +1,8 @@
 on: [push]
 
 jobs:
-  soos_sast_analysis_example:
-    name: SOOS SAST Analysis Example
+  soos_sast_scan:
+    name: SOOS SAST Scan
     runs-on: ubuntu-latest
     steps:
       - uses: actions/setup-node@v4
@@ -16,11 +16,12 @@ jobs:
           api_key: ${{ secrets.QA_SOOS_API_KEY }}
           api_url: "https://qa-api.soos.io/api/"
           project_name: "SAST Github Actions Test"
+          script_version: 1.0.4-pre.1
           #sast_path: "../../"
           #directories_to_exclude: "projectB/**"
           #files_to_exclude: "new-project/BuildOutput.sarif.json"
           #branch_name: 'sast-integration-test-2'
           #build_version: '1.0.0'
-          log_level: 'DEBUG'
-          verbose: true
+          #log_level: 'DEBUG'
+          #verbose: true
           #on_failure: 'continue_on_failure'
