@@ -16,7 +16,7 @@ jobs:
           api_key: ${{ secrets.QA_SOOS_API_KEY }}
           api_url: "https://qa-api.soos.io/api/"
           project_name: "SAST Github Actions Test"
-          script_version: 1.0.4-pre.1
+          sast_version: 1.0.4-pre.1
           #sast_path: "../../"
           #directories_to_exclude: "projectB/**"
           #files_to_exclude: "new-project/BuildOutput.sarif.json"
