@@ -20,7 +20,7 @@ jobs:
           #sast_path: "../../"
           #directories_to_exclude: "projectB/**"
           #files_to_exclude: "new-project/BuildOutput.sarif.json"
-          branch_name: 'notIncluded'
+          branch_name: 'regression-test'
           #build_version: '1.0.0'
           #log_level: 'DEBUG'
           #verbose: true
