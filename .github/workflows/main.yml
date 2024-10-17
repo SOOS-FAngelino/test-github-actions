@@ -15,7 +15,7 @@ jobs:
           client_id: ${{ secrets.QA_SOOS_CLIENT_ID }}
           api_key: ${{ secrets.QA_SOOS_API_KEY }}
           api_url: "https://qa-api.soos.io/api/"
-          project_name: "SAST Github Actions Test 12"
+          project_name: "SAST Github Actions Test 13"
           sast_version: 1.0.4-pre.1
           #sast_path: "../../"
           #directories_to_exclude: "ProjectB/sarif-files/**" 
@@ -24,4 +24,4 @@ jobs:
           #build_version: '1.0.0'
           log_level: INFO
           #verbose: true
-          on_failure: fail_the_build
+          on_failure: continue_on_failure
