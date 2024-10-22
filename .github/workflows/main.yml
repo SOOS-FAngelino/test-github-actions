@@ -13,7 +13,7 @@ jobs:
         with:
           client_id: ${{ secrets.QA_SOOS_CLIENT_ID }}
           api_key: ${{ secrets.QA_SOOS_API_KEY }}
-          scan_mode: "baseline"
+          #scan_mode: "baseline"
           #api_scan_format: "soap"
           target_url: https://brokencrystals.com/
           #target_url: "https://www.dataaccess.com/webservicesserver/NumberConversion.wso"
