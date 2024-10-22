@@ -2,7 +2,7 @@ name: Example workflow using SOOS
 # Events required to engage workflow (add/edit this list as needed)
 on: push
 jobs:
-  synchronous-analysis-with-blocking-result:
+  soos-sca-analysis:
     name: SOOS SCA Scan
     runs-on: ubuntu-latest
     
@@ -19,5 +19,5 @@ jobs:
         # Visit https://soos.io to get the required tokens to leverage SOOS scanning/analysis services
         client_id: ${{ secrets.QA_SOOS_CLIENT_ID }}
         api_key: ${{ secrets.QA_SOOS_API_KEY }}
-        package_managers: 'Swift'
-        log_level: DEBUG
+        #package_managers: 'Swift'
+        #log_level: DEBUG
