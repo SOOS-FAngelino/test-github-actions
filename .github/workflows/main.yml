@@ -15,7 +15,7 @@ jobs:
           api_key: ${{ secrets.QA_SOOS_API_KEY }}
           #scan_mode: "baseline"
           #api_scan_format: "soap"
-          target_url: https://edition.cnn.com/
+          target_url: https://qa-app.soos.io/
           #target_url: "https://www.dataaccess.com/webservicesserver/NumberConversion.wso"
           project_name: 'DAST Github Actions'
           #project_name: ${{ github.repository }}
