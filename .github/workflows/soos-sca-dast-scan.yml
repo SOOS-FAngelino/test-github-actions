@@ -41,7 +41,7 @@ jobs:
         api_key: ${{ secrets.QA_SOOS_API_KEY }}
         api_url: "https://qa-api.soos.io/api/"
         directories_to_exclude: 'image-resizer/**'
-        #branch_name: "new-branch"
+        branch_name: "integration"
   soos:
     permissions:
       security-events: write # for uploading code scanning alert info
@@ -59,7 +59,7 @@ jobs:
           scan_mode: "baseline"
           target_url: "https://brokencrystals.com/"
           output_format: "sarif"
-          #branch_name: "new-branch"
+          branch_name: "integration"
       - name: Upload SOOS DAST SARIF Report
         uses: github/codeql-action/upload-sarif@v2
         with:
@@ -78,6 +78,6 @@ jobs:
           project_name: "SCA+DAST+SAST Github Actions Test"
           #directories_to_exclude: "sarif/**"
           #files_to_exclude: "image_resizer_semgrep_output.sarif.json, sastNoIssues_semgrep_output.sarif.json"
-          #branch_name: "new-branch"
+          branch_name: "integration"
           #build_version: '1.0.0'
           #log_level: 'WARN'
