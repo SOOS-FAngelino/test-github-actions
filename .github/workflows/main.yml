@@ -19,6 +19,7 @@ jobs:
         # Visit https://soos.io to get the required tokens to leverage SOOS scanning/analysis services
         client_id: ${{ secrets.QA_SOOS_CLIENT_ID }}
         api_key: ${{ secrets.QA_SOOS_API_KEY }}
+        script_version: 4.0.8-pre.3
         #package_managers: 'Swift'
         #log_level: DEBUG
         output_format: 'sarif'
