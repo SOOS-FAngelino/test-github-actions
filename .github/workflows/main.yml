@@ -2,8 +2,6 @@ on: [push]
 
 jobs:
   soos:
-    permissions:
-      security-events: write # for uploading code scanning alert info
     name: SOOS SAST Scan
     runs-on: ubuntu-latest
     steps:
@@ -26,7 +24,4 @@ jobs:
           #debug: "false"
           other_options: "-d"          
           #output_format: "SARIF"
-      - name: Upload SOOS DAST SARIF Report
-        uses: github/codeql-action/upload-sarif@v3
-        with:
-          sarif_file: results.sarif
+
