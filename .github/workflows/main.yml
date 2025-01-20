@@ -25,7 +25,7 @@ jobs:
           #verbose: "true"
           #debug: "false"
           other_options: "-d"          
-          output_format: "SARIF"
+          #output_format: "SARIF"
       - name: Upload SOOS DAST SARIF Report
         uses: github/codeql-action/upload-sarif@v3
         with:
