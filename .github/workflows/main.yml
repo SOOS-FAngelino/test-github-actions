@@ -15,13 +15,14 @@ jobs:
           #api_scan_format: "soap"
           target_url: https://brokencrystals.com/
           #target_url: "https://www.dataaccess.com/webservicesserver/NumberConversion.wso"
-          project_name: 'dast-githubActions-27'
+          project_name: 'dast-githubActions-26'
           image_tag: beta
           #project_name: ${{ github.repository }}
           #request_eeaders: "invalid"
           api_url: "https://qa-api.soos.io/api/"
           #verbose: "true"
           #debug: "false"
-          other_options: "-d"          
+          #other_options: "-d"          
           #output_format: "SARIF"
+          disable_rules: "10003,10010,10011,10020,10021,10110"
 
