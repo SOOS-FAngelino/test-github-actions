@@ -15,16 +15,17 @@ jobs:
           api_key: ${{ secrets.QA_SOOS_API_KEY }}
           #scan_mode: "baseline"
           #api_scan_format: "soap"
-          target_url: https://qa-app.soos.io/
+          target_url: https://brokencrystals.com/
           #target_url: "https://www.dataaccess.com/webservicesserver/NumberConversion.wso"
-          project_name: 'DAST Github Actions'
+          project_name: 'dast-githubActions-27'
+          image_tag: beta
           #project_name: ${{ github.repository }}
           #request_eeaders: "invalid"
           api_url: "https://qa-api.soos.io/api/"
           #verbose: "true"
           #debug: "false"
-          #other_options: "-d"          
-          output_format: "sarif"
+          other_options: "-d"          
+          output_format: "SARIF"
       - name: Upload SOOS DAST SARIF Report
         uses: github/codeql-action/upload-sarif@v3
         with:
