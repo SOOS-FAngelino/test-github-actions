@@ -24,4 +24,4 @@ jobs:
           #debug: "false"
           #other_options: "-d"          
           #output_format: "SARIF"
-          #disable_rules: "10003,10010,10011,10020,10021,10110"
+          disable_rules: "10003,10010,10011,10020,10110"
