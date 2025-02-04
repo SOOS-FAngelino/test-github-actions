@@ -1,29 +1,60 @@
-name: Example workflow using SOOS
-# Events required to engage workflow (add/edit this list as needed)
-on: push
+on: [push]
+
 jobs:
-  soos-sca-analysis:
+  synchronous-analysis-with-blocking-result:
+    permissions:
+      security-events: write # for uploading code scanning alert info
+      actions: read # only required for a private repository by github/codeql-action/upload-sarif to get the Action run status    
     name: SOOS SCA Scan
     runs-on: ubuntu-latest
-    
     steps:
     - uses: actions/setup-node@v4
       with:
         node-version: 20
     - uses: actions/checkout@master
     - name: Run SOOS - Scan for vulnerabilities
-      uses: soos-io/soos-sca-github-action@v2
+      uses: soos-io/soos-sca-github-action@v2.3.0 #Get Latest Version from https://github.com/marketplace/actions/soos-core-sca
       with:
-        project_name: ${{ github.repository }}
-        #api_url: "https://qa-api.soos.io/api/"
-        # Visit https://soos.io to get the required tokens to leverage SOOS scanning/analysis services
-        client_id: ${{ secrets.PD_SOOS_CLIENT_ID }}
-        api_key: ${{ secrets.PD_SOOS_API_KEY }}
-        #script_version: 4.0.8-pre.3
-        #package_managers: 'Swift'
-        #log_level: DEBUG
-        output_format: 'sarif'
-    - name: Upload SOOS SARIF Report
-      uses: github/codeql-action/upload-sarif@v3
+        project_name: "GitHub Actions - SCA"  
+        client_id: ${{ secrets.QA_SOOS_CLIENT_ID }}
+        api_key: ${{ secrets.QA_SOOS_API_KEY }}
+        api_url: 'https://qa-api.soos.io/api/'
+        log_level: DEBUG
+        #package_managers: "php"  
+        sca_version: 4.0.15-pre.2
+        export_format: sarif
+        export_file_type: JSON
+        output_directory: output
+        output_format: SARIF
+        
+    
+      # Cargar el directorio generado como artefacto
+    - uses: actions/upload-artifact@v4
       with:
-          sarif_file: results.sarif
+        name: sca-analysis-output
+        path: |
+              ${{ github.workspace }}/output/*.cdx.json
+              ${{ github.workspace }}/output/*.cdx.xml
+              ${{ github.workspace }}/output/*.spdx.json
+              ${{ github.workspace }}/output/*.spdx.txt
+              ${{ github.workspace }}/output/*.sarif.json
+              ${{ github.workspace }}/output/*.csafvex.json
+              ${{ github.workspace }}/output/*.sooslicenses.html
+              ${{ github.workspace }}/output/*.sooslicenses.csv
+              ${{ github.workspace }}/output/*.soospackages.html
+              ${{ github.workspace }}/output/*.soospackages.csv
+              ${{ github.workspace }}/output/*.soosvulnerabilities.html
+              ${{ github.workspace }}/output/*.soosvulnerabilities.csv
+              ${{ github.workspace }}/output/*.soosissues.html
+              ${{ github.workspace }}/output/*.soosissues.csv
+
+    - name: Get SARIF file
+      id: get-sarif
+      run: |
+        FILE=$(ls ${{ github.workspace }}/output/*.sarif.json | head -n 1)
+        echo "sarif_file=$FILE" >> $GITHUB_ENV
+
+   # - name: Upload SOOS SARIF Report
+   #   uses: github/codeql-action/upload-sarif@v3
+   #   with:
+   #       sarif_file: ${{ env.sarif_file }}
