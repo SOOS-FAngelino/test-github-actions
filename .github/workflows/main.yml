@@ -12,8 +12,8 @@ jobs:
       - name: Run SOOS SBOM Scan
         uses: soos-io/soos-sbom-github-action@v1.3.0 # GET Latest Version from https://github.com/marketplace/actions/soos-sbom
         with:
-          client_id: ${{ secrets.SOOS_CLIENT_ID }}
-          api_key: ${{ secrets.SOOS_API_KEY }}
+          client_id: ${{ secrets.PD_SOOS_CLIENT_ID }}
+          api_key: ${{ secrets.PD_SOOS_API_KEY }}
           #api_url: 'https://qa-api.soos.io/api/'
           project_name: "SBOM Github Actions Test"
           sbom_path: "sbom-files"          
