@@ -8,11 +8,11 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Run SOOS - Scan for vulnerabilities
-      uses: soos-io/soos-sca-github-action@a816c5c6b56afb5168c60144b8d260852c24cc87
+      uses: soos-io/soos-sca-github-action@v2
       with:
         project_name: ${{ github.repository }}
-        api_url: "https://qa-api.soos.io/api/"
+        #api_url: "https://qa-api.soos.io/api/"
         # Visit https://soos.io to get the required tokens to leverage SOOS scanning/analysis services
-        client_id: ${{ secrets.QA_SOOS_CLIENT_ID }}
-        api_key: ${{ secrets.QA_SOOS_API_KEY }}
-        verbose: true
+        client_id: ${{ secrets.PD_SOOS_CLIENT_ID }}
+        api_key: ${{ secrets.PD_SOOS_API_KEY }}
+        log_level: DEBUG
