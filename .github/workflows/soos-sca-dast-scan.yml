@@ -18,7 +18,6 @@
 # 4. (Optional) If you'd like to upload SARIF results of DAST scans to GitHub, set SOOS_GITHUB_PAT with your Github Personal Access Token.
 #
 #  Check for the latest version here: https://github.com/marketplace/actions/soos-dast
-
 name: "SOOS DAST Scan"
 
 on:
@@ -28,6 +27,43 @@ on:
     branches: [ "main" ]
 
 jobs:
+  soos:
+    permissions:
+      security-events: write # for uploading code scanning alert info
+      actions: read # only required for a private repository by github/codeql-action/upload-sarif to get the Action run status
+    name: SOOS DAST Analysis
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run SOOS DAST Analysis
+        uses: soos-io/soos-dast-github-action@v2
+        with:
+          client_id: ${{ secrets.QA_SOOS_CLIENT_ID }}
+          api_key: ${{ secrets.QA_SOOS_API_KEY }}
+          project_name: "Github actions test"
+          scan_mode: "baseline"
+          target_url: "https://brokencrystals.com/"
+          api_url: "https://qa-api.soos.io/api/"
+          export_format: "Sarif"
+          export_file_type: "Json"
+          #other_options: "-d"
+          #disable_rules: "10003,10010,10011,10020,10021,10110"
+          image_tag: beta          
+          
+      - name: Find and rename SARIF file since it is unique
+        run: |
+          file=$(find . -name "*.sarif.json" | head -n 1)
+          if [ -n "$file" ]; then
+            mv "$file" output.sarif.json
+            echo "Renamed $file to output.sarif.json"
+          else
+            echo "No SARIF file found" && exit 1
+          fi
+      - name: Upload SOOS DAST SARIF Report
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: output.sarif.json
+
+
   soos-sca-analysis:
     name: SOOS SCA Scan
     runs-on: ubuntu-latest
@@ -36,9 +72,7 @@ jobs:
     - name: Run SOOS - Scan for vulnerabilities
       uses: soos-io/soos-sca-github-action@v2 # Get Latest Version from https://github.com/marketplace/actions/soos-core-sca
       with:
-        project_name: "SCA-Github-Actions-Test"
-        client_id: ${{ secrets.PD_SOOS_CLIENT_ID }}
-        api_key: ${{ secrets.PD_SOOS_API_KEY }}
-        #api_url: "https://qa-api.soos.io/api/"
-        #directories_to_exclude: 'image-resizer/**'
-        #branch_name: "integration"
+        project_name: "Github actions test"
+        client_id: ${{ secrets.QA_SOOS_CLIENT_ID }}
+        api_key: ${{ secrets.QA_SOOS_API_KEY }}
+        api_url: "https://qa-api.soos.io/api/"
