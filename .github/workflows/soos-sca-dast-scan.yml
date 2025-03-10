@@ -43,10 +43,10 @@ jobs:
           scan_mode: "baseline"
           target_url: "https://brokencrystals.com/"
           api_url: "https://qa-api.soos.io/api/"
-          export_format: "Sarif"
-          export_file_type: "Json"
-          other_options: "-d"
-          #disable_rules: "10003,10010,10011,10020,10021,10110"
+          #export_format: "Sarif"
+          #export_file_type: "Json"
+          #other_options: "-d"
+          disable_rules: "10003,10010,10011,10020,10021,10110"
           image_tag: beta          
           
       - name: Find and rename SARIF file since it is unique
