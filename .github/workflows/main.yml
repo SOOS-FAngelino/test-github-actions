@@ -1,23 +1,34 @@
-on: [push]
+name: "SOOS SCA Scan"
+
+on:
+  push:
+    branches: [ "master" ]
 
 jobs:
-  synchronous-analysis-with-blocking-result:
+  soos:
     permissions:
       security-events: write # for uploading code scanning alert info
-      actions: read # only required for a private repository by github/codeql-action/upload-sarif to get the Action run status    
-    name: SOOS SCA Scan
+      actions: read # only required for a private repository by github/codeql-action/upload-sarif to get the Action run status
+    name: SOOS SCA Analysis
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/setup-node@v4
-      with:
-        node-version: 20
-    - uses: actions/checkout@master
-    - name: Run SOOS - Scan for vulnerabilities
-      uses: soos-io/soos-sca-github-action@v2
-      with:
-        project_name: ${{ github.repository }}
-        #api_url: "https://qa-api.soos.io/api/"
-        # Visit https://soos.io to get the required tokens to leverage SOOS scanning/analysis services
-        client_id: ${{ secrets.PD_SOOS_CLIENT_ID }}
-        api_key: ${{ secrets.PD_SOOS_API_KEY }}
-        log_level: DEBUG
+      - uses: actions/checkout@master
+      - name: Run SOOS SCA Analysis
+        uses: soos-io/soos-sca-github-action@v2
+        with:
+          client_id: ${{ secrets.QA_SOOS_CLIENT_ID }}
+          api_key: ${{ secrets.QA_SOOS_API_KEY }}
+          api_url: "https://qa-api.soos.io/api/"
+          project_name: "sca_gha_test"
+          export_format: "sarif"
+          export_file_type: "json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: 'reports'
+          path: '*'
+      - name: Rename file 
+        run: mv *.sarif.json results.sarif
+      - name: Upload SOOS DAST SARIF Report
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: results.sarif
