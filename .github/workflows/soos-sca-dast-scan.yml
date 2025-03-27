@@ -1,30 +1,6 @@
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-#
-# SOOS is the easy-to-integrate and affordable software security solution for your whole team.
-#
-# Learn more at https://soos.io/
-#
-# To use this action, perform the following steps:
-#
-# 1. Create an account on https://app.soos.io. SOOS offers a free 30 day trial for our SCA, DAST, and SBOM products.
-#
-# 2. Navigate to the "Integrate" page in the SOOS app (https://app.soos.io/integrate/dast/). Note the "API Credentials" section of this page; the keys you will need for the next step are here.
-#
-# 3. Set up your SOOS API Key and SOOS Client Id as Github Secrets named SOOS_API_KEY and SOOS_CLIENT_ID.
-#
-# 4. (Optional) If you'd like to upload SARIF results of DAST scans to GitHub, set SOOS_GITHUB_PAT with your Github Personal Access Token.
-#
-#  Check for the latest version here: https://github.com/marketplace/actions/soos-dast
 name: "SOOS DAST Scan"
 
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+on: [push]
 
 jobs:
   soos:
@@ -46,7 +22,7 @@ jobs:
           export_format: "Sarif"
           export_file_type: "Json"
           other_options: "-d"
-          disable_rules: "10003,10010,10011,10020,10021,10110"
+          #disable_rules: "10003,10010,10011,10020,10021,10110"
           image_tag: beta          
           
       - name: Find and rename SARIF file since it is unique
@@ -63,16 +39,3 @@ jobs:
         with:
           sarif_file: output.sarif.json
 
-
-  soos-sca-analysis:
-    name: SOOS SCA Scan
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@master
-    - name: Run SOOS - Scan for vulnerabilities
-      uses: soos-io/soos-sca-github-action@v2 # Get Latest Version from https://github.com/marketplace/actions/soos-core-sca
-      with:
-        project_name: "Github actions test"
-        client_id: ${{ secrets.QA_SOOS_CLIENT_ID }}
-        api_key: ${{ secrets.QA_SOOS_API_KEY }}
-        api_url: "https://qa-api.soos.io/api/"
