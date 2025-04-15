@@ -15,7 +15,7 @@ jobs:
         with:
           client_id: ${{ secrets.QA_SOOS_CLIENT_ID }}
           api_key: ${{ secrets.QA_SOOS_API_KEY }}
-          project_name: "Github actions test"
+          project_name: "Github actions - case 25"
           scan_mode: "baseline"
           target_url: "https://brokencrystals.com/"
           api_url: "https://qa-api.soos.io/api/"
@@ -23,7 +23,7 @@ jobs:
           export_file_type: "Json"
           other_options: "-d"
           #disable_rules: "10003,10010,10011,10020,10021,10110"
-          image_tag: beta          
+          image_tag: alpha          
           
       - name: Find and rename SARIF file since it is unique
         run: |
