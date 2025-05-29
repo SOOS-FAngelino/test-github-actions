@@ -17,11 +17,11 @@ jobs:
           client_id: ${{ secrets.QA_SOOS_CLIENT_ID }}
           api_key: ${{ secrets.QA_SOOS_API_KEY }}
           api_url: "https://qa-api.soos.io/api/"
-          project_name: "sca_gha_test"
-          export_format: "sarif"
-          export_file_type: "json"
+          project_name: "SCA gitHub Actions"
+          #export_format: "sarif"
+          #export_file_type: "json"
           sca_version: latest
-          log_level: DEBUG 
+          #log_level: DEBUG 
       - uses: actions/upload-artifact@v4
         with:
           name: 'reports'
