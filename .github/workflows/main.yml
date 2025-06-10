@@ -7,7 +7,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Run SOOS DAST analysis testing
-        uses: soos-io/soos-dast-github-action@v2
+        uses: soos-io/soos-dast-github-action@v2.4.0
         with:
           client_id: ${{ secrets.QA_SOOS_CLIENT_ID }}
           api_key: ${{ secrets.QA_SOOS_API_KEY }}
@@ -20,8 +20,10 @@ jobs:
           #project_name: ${{ github.repository }}
           #request_eeaders: "invalid"
           api_url: "https://qa-api.soos.io/api/"
+          oauthParameters: "paramA, paramB"
+          oauthTokenUrl: "https://oauth.example/token"
           #verbose: "true"
           #debug: "false"
           #other_options: "-d"          
           #output_format: "SARIF"
-          disable_rules: "10003,10010,10011,10020,10110"
+          #disable_rules: "10003,10010,10011,10020,10110"
