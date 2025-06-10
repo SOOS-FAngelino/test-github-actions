@@ -20,8 +20,6 @@ jobs:
           #project_name: ${{ github.repository }}
           #request_eeaders: "invalid"
           api_url: "https://qa-api.soos.io/api/"
-          oauthParameters: "paramA, paramB"
-          oauthTokenUrl: "https://oauth.example/token"
           #verbose: "true"
           #debug: "false"
           #other_options: "-d"          
