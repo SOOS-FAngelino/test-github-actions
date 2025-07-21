@@ -16,15 +16,16 @@ jobs:
           client_id: ${{ secrets.QA_SOOS_CLIENT_ID }}
           api_key: ${{ secrets.QA_SOOS_API_KEY }}
           #project_name: "DAST_gha_test - case 26 - 27"
-          project_name: "GitHub Actions"
+          project_name: "SCA+DAST - GitHub Actionst"
           scan_mode: "baseline"
           target_url: "https://brokencrystals.com/"
           api_url: "https://qa-api.soos.io/api/"
-          export_format: "Sarif"
-          export_file_type: "Json"
-          other_options: "-d"
-          disable_rules: "10003,10010,10011,10020,10021,10110"
-          image_tag: alpha
+          #export_format: "Sarif"
+          #export_file_type: "Json"
+          #other_options: "-d"
+          #disable_rules: "10003,10010,10011,10020,10021,10110"
+          #image_tag: alpha
+          log_level: DEBUG           
 
       - uses: actions/checkout@master
       - name: Run SOOS SCA Analysis
@@ -33,7 +34,7 @@ jobs:
           client_id: ${{ secrets.QA_SOOS_CLIENT_ID }}
           api_key: ${{ secrets.QA_SOOS_API_KEY }}
           api_url: "https://qa-api.soos.io/api/"
-          project_name: "GitHub Actions"
+          project_name: "SCA+DAST - GitHub Actions"
           #export_format: "sarif"
           #export_file_type: "json"
           sca_version: latest
