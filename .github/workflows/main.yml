@@ -10,13 +10,13 @@ jobs:
           node-version: 20
       - uses: actions/checkout@master
       - name: Run SOOS SAST Analysis
-        uses: soos-io/soos-sast-github-action@fd4b0d2bf2f59ae0018785969ed77888006ea014 # GET Latest Version from https://github.com/marketplace/actions/soos-sast
+        uses: soos-io/soos-sast-github-action@b44856d349b25ba1fada8f03d1cd47d901967fd0 # GET Latest Version from https://github.com/marketplace/actions/soos-sast
         with:
           client_id: ${{ secrets.QA_SOOS_CLIENT_ID }}
           api_key: ${{ secrets.QA_SOOS_API_KEY }}
           api_url: "https://qa-api.soos.io/api/"
           project_name: "SAST Github Actions"
-          sast_version: 1.2.1-pre.1
+          #sast_version: 1.2.1-pre.1
           #sast_path: "../../"
           #directories_to_exclude: "ProjectB/sarif-files/**" 
           #files_to_exclude: "**/sarif-files/image_resizer_semgrep_output.sarif.json"
