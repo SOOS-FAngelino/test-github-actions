@@ -5,23 +5,19 @@ jobs:
     name: SOOS SAST Scan
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
-      - name: Run SOOS DAST analysis testing
-        uses: soos-io/soos-dast-github-action@v2.4.0
+      - name: SOOS DAST Analysis
+        uses: soos-io/soos-dast-github-action@8c729d97193aa72d55fd3e1320e4b8986386323b
         with:
-          client_id: ${{ secrets.QA_SOOS_CLIENT_ID }}
-          api_key: ${{ secrets.QA_SOOS_API_KEY }}
-          #scan_mode: "baseline"
-          #api_scan_format: "soap"
-          target_url: https://brokencrystals.com/
-          #target_url: "https://www.dataaccess.com/webservicesserver/NumberConversion.wso"
-          project_name: 'dast-githubActions-26'
-          image_tag: beta
-          #project_name: ${{ github.repository }}
-          #request_eeaders: "invalid"
-          api_url: "https://qa-api.soos.io/api/"
-          #verbose: "true"
-          #debug: "false"
-          #other_options: "-d"          
-          #output_format: "SARIF"
-          #disable_rules: "10003,10010,10011,10020,10110"
+           image_tag: beta
+           client_id: ${{ secrets.SOOS_QA_CLIENT_ID }}
+           api_key: ${{ secrets.SOOS_QA_API_KEY }}
+           project_name: "dast-githubActions-11"
+           api_url: "https://qa-api.soos.io/api/"
+           target_url: "https://test-dast-auth-2b2b4f2c2fc0.herokuapp.com"
+           auth_username: test-dast-11@tester.com
+           auth_password: "invalidPassword"
+           auth_submit_field: '/html/body/div/main/section/div/div[2]/div/form/div[2]/button'
+           auth_login_url: "https://test-dast-auth-2b2b4f2c2fc0.herokuapp.com/login"
+           auth_verification_url: "https://test-dast-auth-2b2b4f2c2fc0.herokuapp.com/profile"
+           on_failure: "continue_on_failure"
+           log_level: "DEBUG"
