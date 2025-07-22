@@ -5,19 +5,26 @@ jobs:
     name: SOOS SAST Scan
     runs-on: ubuntu-latest
     steps:
-      - name: SOOS DAST Analysis
-        uses: soos-io/soos-dast-github-action@8c729d97193aa72d55fd3e1320e4b8986386323b
-        with:
-           image_tag: alpha
-           client_id: ${{ secrets.QA_SOOS_CLIENT_ID }}
-           api_key: ${{ secrets.QA_SOOS_API_KEY }}
-           project_name: "dast-githubActions-11"
-           api_url: "https://qa-api.soos.io/api/"
-           target_url: "https://test-dast-auth-2b2b4f2c2fc0.herokuapp.com"
-           auth_username: test-dast-11@tester.com
-           auth_password: "invalidPassword"
-           auth_submit_field: '/html/body/div/main/section/div/div[2]/div/form/div[2]/button'
-           auth_login_url: "https://test-dast-auth-2b2b4f2c2fc0.herokuapp.com/login"
-           auth_verification_url: "https://test-dast-auth-2b2b4f2c2fc0.herokuapp.com/profile"
-           on_failure: "continue_on_failure"
-           log_level: "DEBUG"
+    - name: Create Test User
+      run: |
+        curl -X POST "https://brokencrystals.com/api/users/basic" \
+        -H "Content-Type: application/json" \
+        -d '{"email": "test-dast-14@tester.com", "firstName": "test", "lastName": "dast14", "company": "test", "cardNumber": "123", "phoneNumber": "1231231234", "password": "1234", "op": "basic"}'
+    - name: SOOS DAST Analysis
+      uses: soos-io/soos-dast-github-action@v2
+      with:
+          image_tag: alpha
+          client_id: ${{ secrets.QA_SOOS_CLIENT_ID }}
+          api_key: ${{ secrets.QA_SOOS_API_KEY }}
+          project_name: "dast-githubActions-14"
+          api_url: "https://qa-api.soos.io/api/"
+          target_url: "https://brokencrystals.com/api/products"
+          auth_username: "test-dast-14@tester.com"
+          auth_password: "invalidPassword"
+          auth_login_url: "https://brokencrystals.com/newuserlogin"
+          auth_form_type: "multi_page"
+          auth_username_field: "email"
+          auth_password_field: "password"
+          auth_submit_field: "/html/body/div/div/div/div/div/div[2]/form/button"
+          auth_second_submit_field: "/html/body/div/div/div/div/div/div[2]/form/button"
+          on_failure: "continue_on_failure"
