@@ -9,8 +9,8 @@ jobs:
         uses: soos-io/soos-dast-github-action@8c729d97193aa72d55fd3e1320e4b8986386323b
         with:
            image_tag: beta
-           client_id: ${{ secrets.SOOS_QA_CLIENT_ID }}
-           api_key: ${{ secrets.SOOS_QA_API_KEY }}
+           client_id: ${{ secrets.QA_SOOS_CLIENT_ID }}
+           api_key: ${{ secrets.QA_SOOS_API_KEY }}
            project_name: "dast-githubActions-11"
            api_url: "https://qa-api.soos.io/api/"
            target_url: "https://test-dast-auth-2b2b4f2c2fc0.herokuapp.com"
