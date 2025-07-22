@@ -15,7 +15,7 @@ jobs:
            api_url: "https://qa-api.soos.io/api/"
            target_url: "https://test-dast-auth-2b2b4f2c2fc0.herokuapp.com"
            auth_username: bob@bob.com
-           auth_password: "invalidPassword"
+           auth_password: "TESTing!"
            auth_submit_field: '/html/body/div/main/section/div/div[2]/div/form/div[2]/button'
            auth_login_url: "https://test-dast-auth-2b2b4f2c2fc0.herokuapp.com/login"
            auth_verification_url: "https://test-dast-auth-2b2b4f2c2fc0.herokuapp.com/profile"
