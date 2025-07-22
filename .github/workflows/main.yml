@@ -9,22 +9,22 @@ jobs:
       run: |
         curl -X POST "https://brokencrystals.com/api/users/basic" \
         -H "Content-Type: application/json" \
-        -d '{"email": "test-dast-14@tester.com", "firstName": "test", "lastName": "dast14", "company": "test", "cardNumber": "123", "phoneNumber": "1231231234", "password": "1234", "op": "basic"}'
+        -d '{"email": "test-dast-15@tester.com", "firstName": "test", "lastName": "dast15", "company": "test", "cardNumber": "123", "phoneNumber": "1231231234", "password": "1234", "op": "basic"}'
     - name: SOOS DAST Analysis
-      uses: soos-io/soos-dast-github-action@v2
+      uses: soos-io/soos-dast-github-action@8c729d97193aa72d55fd3e1320e4b8986386323b
       with:
-          image_tag: alpha
+          image_tag: ${{ inputs.imageOrPackageVersion }}
           client_id: ${{ secrets.QA_SOOS_CLIENT_ID }}
           api_key: ${{ secrets.QA_SOOS_API_KEY }}
-          project_name: "dast-githubActions-14"
+          project_name: "dast-githubActions-15"
           api_url: "https://qa-api.soos.io/api/"
           target_url: "https://brokencrystals.com/api/products"
-          auth_username: "test-dast-14@tester.com"
-          auth_password: "invalidPassword"
-          auth_login_url: "https://brokencrystals.com/newuserlogin"
+          auth_username: "test-dast-15@tester.com"
+          auth_password: "1234"
           auth_form_type: "multi_page"
           auth_username_field: "email"
           auth_password_field: "password"
           auth_submit_field: "/html/body/div/div/div/div/div/div[2]/form/button"
           auth_second_submit_field: "/html/body/div/div/div/div/div/div[2]/form/button"
-          on_failure: "continue_on_failure"
+          on_failure: "fail_the_build"
+          log_level: "WARN"
