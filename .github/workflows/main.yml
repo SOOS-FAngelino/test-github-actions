@@ -8,7 +8,7 @@ jobs:
       - name: SOOS DAST Analysis
         uses: soos-io/soos-dast-github-action@8c729d97193aa72d55fd3e1320e4b8986386323b
         with:
-           image_tag: beta
+           image_tag: alpha
            client_id: ${{ secrets.QA_SOOS_CLIENT_ID }}
            api_key: ${{ secrets.QA_SOOS_API_KEY }}
            project_name: "dast-githubActions-11"
