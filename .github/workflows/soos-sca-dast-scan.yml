@@ -23,7 +23,8 @@ jobs:
           #export_format: "Sarif"
           #export_file_type: "Json"
           #other_options: "-d"
-          disable_rules: "10003,10010,10011,10020,10021,10110"
+          oauth_parameters: "invalid"
+          #disable_rules: "10003,10010,10011,10020,10021,10110"
           image_tag: alpha
           log_level: DEBUG           
 
