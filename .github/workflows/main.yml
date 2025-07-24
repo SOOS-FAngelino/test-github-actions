@@ -16,7 +16,7 @@ jobs:
           api_key: ${{ secrets.SOOS_API_KEY }}
           #api_url: 'https://qa-api.soos.io/api/'
           project_name: "SBOM Github Actions Test"
-          sbom_path: "sbom-files"          
+          sbom_path: "sbom-files/indico_v3.2.8.python.cdx.json"          
           log_level: INFO
           #sbom_version: 1.2.1-pre.1
           #output_format: SARIF
