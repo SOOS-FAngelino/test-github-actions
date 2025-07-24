@@ -7,14 +7,14 @@ jobs:
     steps:
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
       - uses: actions/checkout@master
       - name: Run SOOS SBOM Scan
-        uses: soos-io/soos-sbom-github-action@6873ab05247f721fb1a01da17fa1ffb228ce6fe7 # GET Latest Version from https://github.com/marketplace/actions/soos-sbom
+        uses: soos-io/soos-sbom-github-action@v1 # GET Latest Version from https://github.com/marketplace/actions/soos-sbom
         with:
-          client_id: ${{ secrets.QA_SOOS_CLIENT_ID }}
-          api_key: ${{ secrets.QA_SOOS_API_KEY }}
-          api_url: 'https://qa-api.soos.io/api/'
+          client_id: ${{ secrets.SOOS_CLIENT_ID }}
+          api_key: ${{ secrets.SOOS_API_KEY }}
+          #api_url: 'https://qa-api.soos.io/api/'
           project_name: "SBOM Github Actions Test"
           sbom_path: "sbom-files"          
           log_level: INFO
