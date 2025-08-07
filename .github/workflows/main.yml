@@ -27,4 +27,4 @@ jobs:
           auth_submit_field: "/html/body/div/div/div/div/div/div[2]/form/button"
           auth_second_submit_field: "/html/body/div/div/div/div/div/div[2]/form/button"
           on_failure: "fail_the_build"
-          log_level: "WARN"
+          log_level: "DEBUG"
