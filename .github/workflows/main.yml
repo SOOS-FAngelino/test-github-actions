@@ -12,10 +12,10 @@ jobs:
            client_id: ${{ secrets.QA_SOOS_CLIENT_ID }}
            api_key: ${{ secrets.QA_SOOS_API_KEY }}
            api_url: "https://qa-api.soos.io/api/"
-           project_name: "github-dast-error-2"
+           project_name: "github-dast-auth-3"
            target_url: "https://demoqa.com/profile"
-           auth_username: "invalidUsername"
-           auth_password: "invalidPassword"
+           auth_username: "josetest"
+           auth_password: "J0s3#t3st"
            auth_login_URL: "https://demoqa.com/login"
            auth_verification_url: "https://demoqa.com/Account/v1/User/52d9d238-fc85-4f1e-9ce2-50a65397ed29"
            log_level: "DEBUG"
