@@ -11,7 +11,7 @@ jobs:
         -H "Content-Type: application/json" \
         -d '{"email": "test-dast-15@tester.com", "firstName": "test", "lastName": "dast15", "company": "test", "cardNumber": "123", "phoneNumber": "1231231234", "password": "1234", "op": "basic"}'
     - name: SOOS DAST Analysis
-      uses: soos-io/soos-dast-github-action@8c729d97193aa72d55fd3e1320e4b8986386323b
+      uses: soos-io/soos-dast-github-action@v2
       with:
           image_tag: alpha
           client_id: ${{ secrets.QA_SOOS_CLIENT_ID }}
