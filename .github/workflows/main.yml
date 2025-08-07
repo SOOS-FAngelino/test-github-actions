@@ -20,5 +20,5 @@ jobs:
            auth_username_field: "userName"
            auth_password_field: "password"
            auth_submit_field: "login"
-           auth_verification_url: "https://demoqa.com/Account/v1/User/1cba41e9-0e7e-4c53-8476-6cc33e84eaf7"
+           auth_target_url: "https://demoqa.com/Account/v1/User/1cba41e9-0e7e-4c53-8476-6cc33e84eaf7"
            log_level: "DEBUG"
