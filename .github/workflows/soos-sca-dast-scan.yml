@@ -15,15 +15,15 @@ jobs:
         with:
           client_id: ${{ secrets.QA_SOOS_CLIENT_ID }}
           api_key: ${{ secrets.QA_SOOS_API_KEY }}
-          project_name: "dast-gha-REGRESSION-25"
+          project_name: "dast-gha-REGRESSION-26"
           scan_mode: "baseline"
           target_url: "https://brokencrystals.com/"
           api_url: "https://qa-api.soos.io/api/"
-          export_format: "Sarif"
-          export_file_type: "Json"
-          other_options: "-d"
+          #export_format: "Sarif"
+          #export_file_type: "Json"
+          #other_options: "-d"
           #oauth_parameters: "invalid"
-          #disable_rules: "10003,10010,10011,10020,10021,10110"
+          disable_rules: "10003,10010,10011,10020,10021,10110"
           image_tag: alpha
           #log_level: DEBUG           
 
