@@ -12,16 +12,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Run SOOS SCA Analysis
-        uses: soos-io/soos-sca-github-action@616909ecb474a9d86d6470d6b4a0ac16b33d6f4d
+        uses: soos-io/soos-sca-github-action@v2
         with:
           client_id: ${{ secrets.QA_SOOS_CLIENT_ID }}
           api_key: ${{ secrets.QA_SOOS_API_KEY }}
           api_url: "https://qa-api.soos.io/api/"
           project_name: "SCA gitHub Actions"
-          #export_format: "sarif"
-          #export_file_type: "json"
-          sca_version: latest
+          export_format: "sarif"
+          export_file_type: "json"
+          sca_version: 4.2.6-pre.1
           #log_level: DEBUG 
+          
       - uses: actions/upload-artifact@v4
         with:
           name: 'reports'
